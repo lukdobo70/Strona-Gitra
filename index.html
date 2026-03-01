@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strona Główna</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">Rock&Metal</div>
+            <nav class="navbar-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link active">Strona główna</a></li>
+                    <li><a href="about.html" class="nav-link">O mnie</a></li>
+                    <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+                    <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                    <li><a href="#Regulamin" class="nav-link">Regulamin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Lekcje Gitary: Rock&Metal</h1>
+                <p class="profp">Profesjonalne zajęcia dla początkujących i średniozaawansowanych.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" id="btn-zapis" class="btn primary-btn">Zapisz się na lekcję</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="tiles-section">
+            <div class="tiles-container">
+                <a href="about.html" class="tile" id="tile-about">
+                    <div class="tile-icon" aria-label="O mnie"></div>
+                    <h2>O mnie</h2>
+                    <p>Kim jestem, jakie mam doświadczenie i co oferuję.</p>
+                </a>
+                <a href="pricing.html" class="tile" id="tile-pricing">
+                    <div class="tile-icon" aria-label="Cennik"></div>
+                    <h2>Cennik</h2>
+                    <p>Przejrzyste pakiety lekcji gitarowych.</p>
+                </a>
+                <a href="calendar.html" class="tile" id="tile-calendar">
+                    <div class="tile-icon" aria-label="Terminarz"></div>
+                    <h2>Terminarz</h2>
+                    <p>Sprawdź dostępne terminy i zapisz się.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="short-about-section">
+            <div class="short-about-container">
+                <p id="short-text">
+                    🔥 Nazywam się Łukasz Dobosz, jestem gitarzystą rockowo-bluesowym. Od 7 lat pomagam uczniom wejść w świat improwizacji...
+                </p>
+                <p id="full-text" style="display:none;">
+                    🔥 Nazywam się Łukasz Dobosz, jestem gitarzystą rockowo-bluesowym. Od 7 lat pomagam uczniom wejść w świat improwizacji, techniki i feelingu. Na zajęciach gramy dużo praktyki — od klasyków Dżemu po jam session w bluesowym stylu. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odio fugiat tempora est. Sequi omnis qui, laboriosam voluptatum, voluptate debitis modi velit adipisci quos commodi harum, officia totam. Quo, repudiandae. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint expedita enim quas delectus qui adipisci doloremque eveniet optio, ducimus labore minus non dolores ea consectetur deserunt, deleniti aperiam dolor. Nihil! Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit repudiandae libero non consequatur qui corporis quae ad quis magnam, quasi ex earum sint ratione dolorem, pariatur doloribus quo facere. Esse.
+                </p>
+                <button id="read-more-btn" class="btn primary-btn">Czytaj więcej</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-contact">
+                <h3>Kontakt</h3>
+                <p>Telefon: <a href="tel:+48123456789">+48 123 456 789</a></p>
+                <p>Email: <a href="mailto:kontakt@lekcjegitary.pl">kontakt@lekcjegitary.pl</a></p>
+            </div>
+            <div class="footer-socials">
+                <h3>Znajdź mnie</h3>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a> |
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            </div>
+            <div class="footer-location">
+                <h3>Lokalizacja</h3>
+                <p>Opole i okolice</p>
+            </div>
+            <div class="footer-menu">
+                <h3>Menu</h3>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Strona główna</a></li>
+                        <li><a href="about.html">O mnie</a></li>
+                        <li><a href="pricing.html">Cennik</a></li>
+                        <li><a href="calendar.html">Terminarz</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+        <script>
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const shortText = document.getElementById('short-text');
+            const fullText = document.getElementById('full-text');
+
+            readMoreBtn.addEventListener('click', () => {
+                if (fullText.style.display === 'none') {
+                    fullText.style.display = 'block';
+                    shortText.style.display = 'none';
+                    readMoreBtn.textContent = 'Zwiń';
+                } else {
+                    fullText.style.display = 'none';
+                    shortText.style.display = 'block';
+                    readMoreBtn.textContent = 'Czytaj więcej';
+                }
+            });
+
+        </script>
+</body>
+</html>

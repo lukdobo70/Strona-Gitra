@@ -2,12 +2,20 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>Lekcje gitary Rock & Metal | Opole — Łukasz Dobosz</title>
   <meta name="description" content="Lekcje gitary rock/metal w Opolu i online. Nauka improwizacji, techniki, rytmiki i feelingu. Zapisz się na pierwszą lekcję." />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <!-- Open Graph (pod udostępnianie) -->
+  <meta property="og:title" content="Lekcje gitary Rock & Metal | Opole — Łukasz Dobosz" />
+  <meta property="og:description" content="Lekcje gitary rock/metal w Opolu i online. Improwizacja, technika i plan nauki." />
+  <meta property="og:type" content="website" />
+  <!-- opcjonalnie: og:image, jak będziesz mieć miniaturę -->
 
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="main.js"></script>
 </head>
 
 <body>
@@ -15,16 +23,17 @@
 
   <header class="navbar">
     <div class="navbar-container">
-      <div class="navbar-logo">Rock&Metal</div>
+      <a class="navbar-logo" href="index.html" aria-label="Strona główna Rock&Metal">Rock&Metal</a>
 
       <nav class="navbar-menu" aria-label="Główne menu">
         <ul>
-          <li><a href="index.html" class="nav-link active">Strona główna</a></li>
+          <li><a href="index.html" class="nav-link active" aria-current="page">Strona główna</a></li>
           <li><a href="about.html" class="nav-link">O mnie</a></li>
-          <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
-          <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
+          <!-- Uwaga: lepiej bez polskich znaków i bez wielkich liter w nazwach plików -->
+          <li><a href="materialy.html" class="nav-link">Materiały</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
           <li><a href="#contact" class="nav-link">Kontakt</a></li>
-          <li><a href="#Regulamin" class="nav-link">Regulamin</a></li>
+          <li><a href="#regulamin" class="nav-link">Regulamin</a></li>
         </ul>
       </nav>
     </div>
@@ -32,11 +41,9 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero-section">
-
+    <section class="hero-section" aria-label="Nagłówek strony">
       <div class="hero-content">
         <p class="hero-kicker">Lekcje gitary • Rock • Metal • Blues</p>
-
         <h1>Lekcje Gitary: Rock&Metal</h1>
 
         <p class="hero-subtitle">
@@ -50,7 +57,7 @@
 
         <div class="hero-badges" aria-label="Najważniejsze informacje">
           <span class="badge">📍 Opole i okolice</span>
-          <span class="badge">🎥 Stacjonarnie</span>
+          <span class="badge">🎸 Stacjonarnie i online</span>
           <span class="badge">⏱️ 60 min / lekcja</span>
         </div>
       </div>
@@ -59,19 +66,19 @@
     <!-- QUICK TILES -->
     <section class="tiles-section" aria-label="Szybkie przejścia">
       <div class="tiles-container">
-        <a href="about.html" class="tile" id="tile-about">
+        <a href="about.html" class="tile">
           <div class="tile-icon" aria-hidden="true">👤</div>
           <h2>O mnie</h2>
           <p>Kim jestem, jakie mam doświadczenie i jak prowadzę zajęcia.</p>
         </a>
 
-        <a href="pricing.html" class="tile" id="tile-pricing">
+        <a href="pricing.html" class="tile">
           <div class="tile-icon" aria-hidden="true">💰</div>
           <h2>Cennik</h2>
           <p>Przejrzyste pakiety lekcji gitarowych — bez niespodzianek.</p>
         </a>
 
-        <a href="calendar.html" class="tile" id="tile-calendar">
+        <a href="calendar.html" class="tile">
           <div class="tile-icon" aria-hidden="true">📅</div>
           <h2>Terminarz</h2>
           <p>Sprawdź dostępne terminy i umów lekcję w kilka chwil.</p>
@@ -110,15 +117,23 @@
           🔥 Nazywam się Łukasz Dobosz, jestem gitarzystą rockowo-bluesowym. Od 7 lat pomagam uczniom wejść w świat improwizacji...
         </p>
 
-        <p id="full-text" hidden>
-          🔥 Nazywam się Łukasz Dobosz, jestem gitarzystą rockowo-bluesowym. Od 7 lat pomagam uczniom wejść w świat improwizacji,
-          techniki i feelingu. Na zajęciach gramy dużo praktyki — od klasyków Dżemu po jam session w bluesowym stylu.
-          <br /><br />
-          Jeśli chcesz, uzupełnij tutaj opis (zamiast lorem ipsum): Twoje doświadczenie, podejście, ulubione style, jak wyglądają lekcje,
-          dla kogo są zajęcia i co uczeń potrafi po 1–3 miesiącach.
-        </p>
+        <div id="full-text" class="expandable" hidden>
+          <p>
+            🔥 Nazywam się Łukasz Dobosz, jestem gitarzystą rockowo-bluesowym. Od 7 lat pomagam uczniom wejść w świat improwizacji,
+            techniki i feelingu. Na zajęciach gramy dużo praktyki — od klasyków Dżemu po jam session w bluesowym stylu.
+          </p>
+          <p>
+            Jeśli chcesz, uzupełnij tutaj opis: doświadczenie, podejście, jak wyglądają lekcje i co uczeń potrafi po 1–3 miesiącach.
+          </p>
+        </div>
 
-        <button id="read-more-btn" class="btn primary-btn" type="button" aria-expanded="false" aria-controls="full-text">
+        <button
+          id="read-more-btn"
+          class="btn primary-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="full-text"
+        >
           Czytaj więcej
         </button>
       </div>
@@ -145,9 +160,7 @@
         </figure>
       </div>
 
-      <p class="muted">
-        (Podmień te cytaty na prawdziwe — to mocno zwiększa liczbę zapisów.)
-      </p>
+      <p class="muted">(Podmień te cytaty na prawdziwe — to mocno zwiększa liczbę zapisów.)</p>
     </section>
 
     <!-- CONTACT -->
@@ -156,36 +169,36 @@
       <p class="muted">Napisz lub zadzwoń — odpisuję najszybciej jak mogę.</p>
 
       <div class="contact-grid">
-        <a class="contact-card" href="tel:+48123456789">
+        <a class="contact-card" href="tel:+48797118603">
           <strong>Telefon</strong>
           <span>+48 797 118 603</span>
         </a>
 
-        <a class="contact-card" href="mailto:kontakt@lekcjegitary.pl">
+        <a class="contact-card" href="mailto:rocknblues.lesson@gmail.com">
           <strong>Email</strong>
           <span>rocknblues.lesson@gmail.com</span>
         </a>
 
-        <div class="contact-card">
+        <div class="contact-card" role="note" aria-label="Lokalizacja">
           <strong>Lokalizacja</strong>
           <span>Opole i okolice</span>
         </div>
       </div>
 
       <div class="contact-actions">
-        <a class="btn primary-btn" href="tel:+48123456789">Zadzwoń teraz</a>
-        <a class="btn secondary-btn" href="mailto:kontakt@lekcjegitary.pl">Napisz maila</a>
+        <a class="btn primary-btn" href="tel:+48797118603">Zadzwoń teraz</a>
+        <a class="btn secondary-btn" href="mailto:rocknblues.lesson@gmail.com">Napisz maila</a>
       </div>
     </section>
 
     <!-- RULES -->
-    <section id="Regulamin" class="section-card rules-section">
+    <section id="regulamin" class="section-card rules-section">
       <h2>Regulamin</h2>
 
       <ul class="rules-list">
         <li>Odwołanie lekcji: najlepiej min. 24h wcześniej.</li>
         <li>Spóźnienie nie przedłuża czasu lekcji (chyba że ustalimy inaczej).</li>
-        <li>Płatność: gotówka / przelew / BLIK (ustal na swojej wersji).</li>
+        <li>Płatność: gotówka / przelew / BLIK.</li>
         <li>Zajęcia online: stabilne łącze + słuchawki mile widziane.</li>
       </ul>
     </section>
@@ -201,8 +214,8 @@
 
       <div class="footer-socials">
         <h3>Znajdź mnie</h3>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a> |
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a> |
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
       </div>
 
       <div class="footer-location">
@@ -225,31 +238,8 @@
     </div>
 
     <div class="footer-copy">
-      <p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary. Wszelkie prawa zastrzeżone.</p>
+      <p>&copy; 2026 Łukasz Dobosz – Lekcje Gitary. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
-
-  <script>
-    // "Czytaj więcej" — wersja dostępna (aria + hidden)
-    const readMoreBtn = document.getElementById('read-more-btn');
-    const shortText = document.getElementById('short-text');
-    const fullText = document.getElementById('full-text');
-
-    readMoreBtn.addEventListener('click', () => {
-      const isExpanded = readMoreBtn.getAttribute('aria-expanded') === 'true';
-
-      readMoreBtn.setAttribute('aria-expanded', String(!isExpanded));
-
-      if (!isExpanded) {
-        fullText.hidden = false;
-        shortText.hidden = true;
-        readMoreBtn.textContent = 'Zwiń';
-      } else {
-        fullText.hidden = true;
-        shortText.hidden = false;
-        readMoreBtn.textContent = 'Czytaj więcej';
-      }
-    });
-  </script>
 </body>
 </html>

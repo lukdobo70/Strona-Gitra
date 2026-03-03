@@ -23,3 +23,12 @@
     }
   });
 })();
+
+const alertBox = document.getElementById("site-alert");
+const closeAlert = document.getElementById("close-alert");
+
+if (alertBox && closeAlert) {
+  closeAlert.addEventListener("click", () => {
+    alertBox.style.display = "none";
+  });
+}

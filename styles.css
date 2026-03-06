@@ -529,3 +529,65 @@ body {
   text-align: center;
   font-size: 0.95rem;
 }
+.contact-cta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+
+  margin-top: 1.2rem;
+}
+
+.contact-cta-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.contact-cta-text p {
+  color: #cccccc;
+}
+
+.contact-cta-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.contact-cta-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.10);
+}
+
+.contact-icon {
+  font-size: 1rem;
+}
+@media (max-width: 700px){
+
+.contact-cta{
+grid-template-columns: 1fr;
+text-align:center;
+}
+
+.contact-cta-actions{
+justify-content:center;
+}
+
+}

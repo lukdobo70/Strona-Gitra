@@ -32,3 +32,65 @@ if (alertBox && closeAlert) {
     alertBox.style.display = "none";
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const ratings = {
+    5: 9,
+    4: 0,
+    3: 0,
+    2: 0,
+    1: 0
+  };
+
+  const ratingScore = document.getElementById("rating-score");
+  const ratingCount = document.getElementById("rating-count");
+  const ratingStars = document.getElementById("rating-stars");
+
+  const stars5 = document.getElementById("stars-5");
+  const stars4 = document.getElementById("stars-4");
+  const stars3 = document.getElementById("stars-3");
+  const stars2 = document.getElementById("stars-2");
+  const stars1 = document.getElementById("stars-1");
+
+  if (
+    !ratingScore ||
+    !ratingCount ||
+    !ratingStars ||
+    !stars5 ||
+    !stars4 ||
+    !stars3 ||
+    !stars2 ||
+    !stars1
+  ) {
+    return;
+  }
+
+  stars5.textContent = ratings[5];
+  stars4.textContent = ratings[4];
+  stars3.textContent = ratings[3];
+  stars2.textContent = ratings[2];
+  stars1.textContent = ratings[1];
+
+  let totalReviews = 0;
+  let totalScore = 0;
+
+  for (const star in ratings) {
+    const count = Number(ratings[star]);
+    totalReviews += count;
+    totalScore += Number(star) * count;
+  }
+
+  if (totalReviews === 0) {
+    ratingScore.textContent = "0.0";
+    ratingCount.textContent = "0";
+    ratingStars.textContent = "☆☆☆☆☆";
+    return;
+  }
+
+  const average = (totalScore / totalReviews).toFixed(1);
+
+  ratingScore.textContent = average;
+  ratingCount.textContent = totalReviews;
+
+  const rounded = Math.round(Number(average));
+  ratingStars.textContent = "★".repeat(rounded) + "☆".repeat(5 - rounded);
+});

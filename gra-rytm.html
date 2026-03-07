@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Powtórz rytm | Heavy School</title>
+  <meta name="description" content="Posłuchaj rytmu i spróbuj wystukać go w podobnym tempie." />
+
+  <link rel="stylesheet" href="styles.css?v=20260307-3" />
+  <link rel="stylesheet" href="gry.css?v=20260307-3" />
+  <script src="gra-rytm.js?v=20260307-3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">Heavy School</div>
+
+      <nav class="navbar-menu" aria-label="Główne menu">
+        <ul>
+          <li><a href="index.html" class="nav-link">Strona główna</a></li>
+          <li><a href="lekcje.html" class="nav-link">Lekcje</a></li>
+          <li><a href="pricing.html" class="nav-link">Cennik</a></li>
+          <li><a href="gry.html" class="nav-link active">Gry</a></li>
+          <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="games-main">
+    <a href="gry.html" class="back-to-games">← Gry</a>
+    <section class="games-intro">
+      <p class="games-kicker">Gra muzyczna • Timing</p>
+      <h1>Powtórz rytm</h1>
+      <p class="games-lead">
+        Posłuchaj krótkiego rytmu i spróbuj wystukać go w podobnym tempie.
+      </p>
+    </section>
+
+    <section class="rhythm-game-card">
+  <div id="start-screen" class="start-screen">
+    <button id="start-game" class="start-game-btn" type="button">START</button>
+  </div>
+
+  <div id="game-screen" class="game-screen" hidden>
+    <div class="rhythm-controls">
+      <button id="replay-btn" class="btn secondary-btn" type="button">Odsłuchaj jeszcze raz</button>
+      <button id="tap-btn" class="btn primary-btn" type="button" disabled>Wystukaj rytm</button>
+    </div>
+
+    <p class="rhythm-help">
+      Aby wystukać rytm, użyj <strong>spacji</strong> albo klikaj przycisk <strong>„Wystukaj rytm”</strong>.
+    </p>
+
+    <div class="rhythm-visual" id="rhythm-visual" aria-hidden="true">
+      <div class="pulse-dot"></div>
+    </div>
+
+    <div class="rhythm-pattern" id="rhythm-pattern">
+      <span class="pattern-note">●</span>
+      <span class="pattern-note">●</span>
+      <span class="pattern-note">●</span>
+      <span class="pattern-note">●</span>
+    </div>
+
+    <p class="rhythm-status" id="rhythm-status">Kliknij START, aby rozpocząć.</p>
+
+    <div class="rhythm-result" id="rhythm-result" hidden>
+      <h2>Twój wynik</h2>
+      <p id="result-score">0%</p>
+      <p id="result-text">Spróbuj ponownie i sprawdź swój timing.</p>
+    </div>
+
+    <div class="next-round-wrap" id="next-round-wrap" hidden>
+      <button id="next-round-btn" class="btn primary-btn" type="button">Następny rytm</button>
+    </div>
+  </div>
+</section>
+
+      <div id="game-screen" class="game-screen" hidden>
+        <div class="rhythm-controls">
+          <button id="replay-btn" class="btn secondary-btn" type="button">Odsłuchaj jeszcze raz</button>
+          <button id="tap-btn" class="btn primary-btn" type="button" disabled>Wystukaj rytm</button>
+        </div>
+
+        <p class="rhythm-help">
+          Aby wystukać rytm, użyj <strong>spacji</strong> albo klikaj przycisk <strong>„Wystukaj rytm”</strong>.
+        </p>
+
+        <div class="rhythm-visual" id="rhythm-visual" aria-hidden="true">
+          <div class="pulse-dot"></div>
+        </div>
+
+        <div class="rhythm-pattern" id="rhythm-pattern">
+          <span class="pattern-note">●</span>
+          <span class="pattern-note">●</span>
+          <span class="pattern-note">●</span>
+          <span class="pattern-note">●</span>
+        </div>
+
+        <p class="rhythm-status" id="rhythm-status">Kliknij START, aby rozpocząć.</p>
+
+        <div class="rhythm-result" id="rhythm-result" hidden>
+          <h2>Twój wynik</h2>
+          <p id="result-score">0%</p>
+          <p id="result-text">Spróbuj ponownie i sprawdź swój timing.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-copy">
+      <p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+</body>
+</html>

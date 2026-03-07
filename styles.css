@@ -160,7 +160,10 @@ main {
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
 
-  width: min(1200px, 92%);
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
   padding: 4rem 3rem;
 
   border-radius: 24px;
@@ -590,4 +593,138 @@ text-align:center;
 justify-content:center;
 }
 
+}
+
+.lessons-main {
+  width: min(900px, calc(100% - 32px));
+}
+
+.lessons-intro {
+  margin-bottom: 2rem;
+  padding: 0.5rem 0 1rem 0;
+}
+
+.lessons-kicker {
+  color: rgba(255,255,255,0.72);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.lessons-intro h1 {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+
+.lessons-lead {
+  max-width: 760px;
+  font-size: 1.12rem;
+  color: rgba(255,255,255,0.88);
+}
+
+.lessons-section {
+  padding: 1.6rem 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.lessons-section:first-of-type {
+  border-top: none;
+}
+
+.lessons-section-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lessons-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.lessons-section h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.lessons-text {
+  max-width: 760px;
+}
+
+.lessons-text p {
+  color: #d4d4d4;
+  margin-bottom: 1rem;
+}
+
+.lessons-text p:last-child {
+  margin-bottom: 0;
+}
+
+.lessons-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.lessons-skill {
+  padding: 0.95rem 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e8e8e8;
+  font-weight: 600;
+}
+
+.lessons-cta {
+  margin-top: 2rem;
+  padding: 1.6rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.lessons-cta h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.lessons-cta p {
+  color: #d0d0d0;
+  margin-bottom: 1.2rem;
+}
+
+.lessons-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .lessons-section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lessons-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .lessons-cta {
+    padding: 1.25rem;
+  }
 }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zbuduj akord | Heavy School</title>
+  <meta name="description" content="Ułóż akord z odpowiednich dźwięków i ucz się budowy akordów przez zabawę." />
+
+  <link rel="stylesheet" href="styles.css?v=20260307-6" />
+  <link rel="stylesheet" href="gry.css?v=20260307-6" />
+  <script src="gra-akordy.js?v=20260307-6" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">Heavy School</div>
+
+      <nav class="navbar-menu" aria-label="Główne menu">
+        <ul>
+          <li><a href="index.html" class="nav-link">Strona główna</a></li>
+          <li><a href="lekcje.html" class="nav-link">Lekcje</a></li>
+          <li><a href="pricing.html" class="nav-link">Cennik</a></li>
+          <li><a href="gry.html" class="nav-link active">Gry</a></li>
+          <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="games-main">
+    <a href="gry.html" class="back-to-games">← Gry</a>
+
+    <section class="games-intro">
+      <p class="games-kicker">Gra muzyczna • Akordy</p>
+      <h1>Zbuduj akord</h1>
+      <p class="games-lead">
+        Wybierz level i poziom trudności, a potem ułóż akord z odpowiednich dźwięków.
+        Kliknięcie dźwięku od razu odtworzy jego wysokość.
+      </p>
+    </section>
+
+    <section class="chord-game-card">
+      <div class="chord-flash" id="chord-flash" aria-hidden="true"></div>
+      <div class="emoji-confetti" id="emoji-confetti" aria-hidden="true"></div>
+
+      <div id="chord-level-screen" class="chord-level-screen">
+        <h2>Wybierz level</h2>
+
+        <div class="level-grid">
+          <button class="level-btn" data-level="1" type="button">
+            <strong>Level 1</strong>
+            <span>Dur i mol</span>
+          </button>
+
+          <button class="level-btn" data-level="2" type="button">
+            <strong>Level 2</strong>
+            <span>Septymowe</span>
+          </button>
+
+          <button class="level-btn" data-level="3" type="button">
+            <strong>Level 3</strong>
+            <span>Sus i add</span>
+          </button>
+
+          <button class="level-btn" data-level="4" type="button">
+            <strong>Level 4</strong>
+            <span>Dim i aug</span>
+          </button>
+
+          <button class="level-btn" data-level="5" type="button">
+            <strong>Level 5</strong>
+            <span>Rozszerzone</span>
+          </button>
+
+          <button class="level-btn" data-level="6" type="button">
+            <strong>Level 6</strong>
+            <span>Mix wszystkiego</span>
+          </button>
+        </div>
+
+        <h2 class="difficulty-title">Wybierz poziom trudności</h2>
+
+        <div class="difficulty-grid">
+          <button class="difficulty-btn" data-difficulty="easy" type="button">
+            <strong>Łatwy</strong>
+            <span>Bez limitu czasu</span>
+          </button>
+
+          <button class="difficulty-btn" data-difficulty="medium" type="button">
+            <strong>Średni</strong>
+            <span>30 sekund</span>
+          </button>
+
+          <button class="difficulty-btn" data-difficulty="hard" type="button">
+            <strong>Trudny</strong>
+            <span>20 sekund</span>
+          </button>
+
+          <button class="difficulty-btn" data-difficulty="very-hard" type="button">
+            <strong>Very Hard 🔥</strong>
+            <span>12 sekund + ruchome nuty</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="chord-game-screen" hidden>
+        <div class="chord-topbar">
+          <div class="chord-level-badge" id="current-level-label">Level 1</div>
+          <div class="chord-level-badge" id="current-difficulty-label">Łatwy</div>
+          <div class="chord-score" id="chord-score">Punkty: 0</div>
+        </div>
+
+        <div class="timer-wrap" id="timer-wrap" hidden>
+          <div class="timer-bar">
+            <div class="timer-bar-fill" id="timer-bar-fill"></div>
+          </div>
+          <p class="timer-text" id="timer-text">Pozostało: 30s</p>
+        </div>
+
+        <p class="chord-instruction">
+          Zbuduj akord:
+        </p>
+
+        <h2 class="target-chord" id="target-chord">Am</h2>
+
+        <div class="slots-wrap" id="slots-wrap">
+          <button class="note-slot" type="button"></button>
+          <button class="note-slot" type="button"></button>
+          <button class="note-slot" type="button"></button>
+          <button class="note-slot note-slot--hidden" type="button"></button>
+        </div>
+
+        <div class="note-bank" id="note-bank"></div>
+
+        <div class="chord-actions">
+          <button id="check-chord-btn" class="btn primary-btn" type="button">Sprawdź</button>
+          <button id="clear-chord-btn" class="btn secondary-btn" type="button">Wyczyść</button>
+          <button id="next-chord-btn" class="btn secondary-btn" type="button" hidden>Następny akord</button>
+        </div>
+
+        <p class="chord-status" id="chord-status">
+          Kliknij dźwięki, aby wypełnić pola.
+        </p>
+
+        <div class="chord-help-box" id="chord-help-box" hidden>
+          <h3>Poprawna odpowiedź</h3>
+          <p id="chord-help-answer">A – C – E</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-copy">
+      <p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+</body>
+</html>

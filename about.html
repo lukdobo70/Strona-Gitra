@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O mnie | Heavy School</title>
+<meta name="description" content="Poznaj mnie bliżej — gitarzysta z doświadczeniem scenicznym i w nauczaniu. Lekcje gry na gitarze w przyjaznej atmosferze." />
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body{
+color:#fff;
+background:
+linear-gradient(rgba(15,15,18,0.82), rgba(15,15,18,0.9)),
+url("stage-bg.png");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+.about-main{
+max-width:1100px;
+margin:0 auto;
+padding:120px 20px 80px;
+}
+
+.about-hero{
+position:relative;
+text-align:center;
+padding:120px 30px;
+border-radius:24px;
+margin-bottom:36px;
+overflow:hidden;
+background:
+linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.88)),
+url("bg-body.png");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+box-shadow:0 0 50px rgba(179,0,0,0.22);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.about-hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.45) 100%);
+pointer-events:none;
+}
+
+.about-hero-content{
+position:relative;
+z-index:1;
+max-width:820px;
+margin:0 auto;
+}
+
+.about-kicker{
+display:inline-block;
+color:#ff4b4b;
+font-weight:700;
+letter-spacing:3px;
+font-size:0.8rem;
+margin-bottom:18px;
+text-transform:uppercase;
+padding:8px 14px;
+border:1px solid rgba(255,75,75,0.28);
+border-radius:999px;
+background:rgba(0,0,0,0.28);
+backdrop-filter:blur(4px);
+}
+
+.about-title{
+font-size:clamp(2.3rem,5vw,4.4rem);
+margin-bottom:20px;
+line-height:1.08;
+text-shadow:0 4px 24px rgba(0,0,0,0.9);
+}
+
+.about-lead{
+max-width:760px;
+margin:0 auto;
+font-size:1.1rem;
+line-height:1.8;
+opacity:0.96;
+text-shadow:0 2px 18px rgba(0,0,0,0.95);
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:24px;
+}
+
+.about-card{
+background:#0b0b0b;
+border:1px solid rgba(255,255,255,0.08);
+border-left:4px solid #b30000;
+border-radius:16px;
+padding:28px 24px;
+box-shadow:0 0 20px rgba(0,0,0,0.18);
+}
+
+.about-card h2{
+font-size:1.5rem;
+margin-bottom:16px;
+color:#fff;
+}
+
+.about-card p{
+line-height:1.8;
+opacity:0.9;
+margin-bottom:14px;
+}
+
+.about-list{
+padding-left:20px;
+margin:0;
+}
+
+.about-list li{
+margin-bottom:10px;
+line-height:1.7;
+opacity:0.9;
+}
+
+.about-videos{
+display:grid;
+grid-template-columns:1fr;
+gap:10px;
+margin-top:8px;
+}
+
+.about-videos a{
+color:#fff;
+text-decoration:none;
+padding:12px 14px;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:10px;
+background:#111;
+transition:0.2s;
+}
+
+.about-videos a:hover{
+border-color:#b30000;
+color:#ff3b3b;
+transform:translateY(-2px);
+}
+
+.about-cta{
+margin-top:30px;
+text-align:center;
+padding:34px 24px;
+border:2px solid #b30000;
+border-radius:18px;
+background:#0b0b0b;
+box-shadow:0 0 30px rgba(179,0,0,0.12);
+}
+
+.about-cta h2{
+font-size:2rem;
+margin-bottom:14px;
+}
+
+.about-cta p{
+max-width:700px;
+margin:0 auto 22px;
+line-height:1.8;
+opacity:0.9;
+}
+
+.about-buttons{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.about-btn{
+padding:14px 22px;
+border-radius:10px;
+font-weight:700;
+text-decoration:none;
+transition:.2s;
+}
+
+.about-btn-primary{
+background:#ff3b3b;
+color:#fff;
+}
+
+.about-btn-secondary{
+border:2px solid #ff3b3b;
+color:#fff;
+}
+
+.about-btn:hover{
+transform:translateY(-2px);
+}
+
+@media(min-width:768px){
+.about-grid{
+grid-template-columns:1fr 1fr;
+}
+.about-card-full{
+grid-column:1 / -1;
+}
+}
+
+@media(max-width:767px){
+.about-main{
+padding:110px 16px 60px;
+}
+
+.about-hero{
+padding:90px 20px;
+background-position:center;
+}
+
+.about-title{
+font-size:clamp(2rem,8vw,3rem);
+}
+
+.about-lead{
+font-size:1rem;
+line-height:1.75;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="navbar-container">
+<div class="navbar-logo">Heavy School</div>
+
+<nav class="navbar-menu">
+<ul>
+<li><a href="index.html" class="nav-link">Strona główna</a></li>
+<li><a href="o-mnie.html" class="nav-link active">O mnie</a></li>
+<li><a href="materials.html" class="nav-link">Materiały</a></li>
+<li><a href="faq.html" class="nav-link">FAQ</a></li>
+<li><a href="contact.html" class="nav-link">Kontakt</a></li>
+<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main class="about-main">
+
+<section class="about-hero">
+  <div class="about-hero-content">
+    <div class="about-kicker">O mnie</div>
+    <h1 class="about-title">Gitarzysta z doświadczeniem scenicznym i w nauczaniu</h1>
+    <p class="about-lead">
+      Nazywam się Łukasz Dobosz i od wielu lat gitara jest nieodłączną częścią mojego życia.
+      Gram rytmicznie i solowo, występuję na scenie z zespołem oraz prowadzę indywidualne lekcje
+      gry na gitarze dla dzieci, młodzieży i dorosłych.
+    </p>
+  </div>
+</section>
+
+<section class="about-grid">
+
+<div class="about-card">
+<h2>Gitara to coś więcej niż instrument</h2>
+<p>
+Muzyka to dla mnie nie tylko hobby, ale przede wszystkim pasja i sposób wyrażania siebie.
+Na zajęciach staram się przekazywać nie tylko wiedzę techniczną, ale też podejście do grania,
+które buduje pewność siebie, muzykalność i własny styl.
+</p>
+<p>
+Pracuję z osobami początkującymi oraz bardziej zaawansowanymi, zawsze dopasowując materiał
+do poziomu, celów i tempa nauki ucznia.
+</p>
+</div>
+
+<div class="about-card">
+<h2>Doświadczenie</h2>
+<p>
+Posiadam ponad 9 lat doświadczenia w grze na gitarze oraz w nauczaniu.
+Łączę praktykę sceniczną z podejściem pedagogicznym, dzięki czemu uczniowie uczą się
+nie tylko co grać, ale również jak grać świadomie i muzycznie.
+</p>
+<p>
+Posiadam same pozytywne opinie, a na lekcjach stawiam na przyjazną, motywującą atmosferę
+i realny rozwój umiejętności.
+</p>
+</div>
+
+<div class="about-card">
+<h2>Czego możesz się nauczyć</h2>
+<ul class="about-list">
+<li>akordów, skal i rytmiki</li>
+<li>podstawowych i zaawansowanych technik gry</li>
+<li>improwizacji i tworzenia własnych kompozycji</li>
+<li>praktycznego podejścia do teorii muzyki</li>
+<li>gry w stylach takich jak Blues, Rock, Metal, Jazz i inne</li>
+<li>pracy z efektami gitarowymi i sprzętem</li>
+<li>przygotowania do grania w zespole lub na scenie</li>
+</ul>
+</div>
+
+<div class="about-card">
+<h2>Jak wyglądają lekcje</h2>
+<p>
+Zajęcia prowadzę wyłącznie stacjonarnie, ponieważ uważam, że bezpośredni kontakt
+i wspólna gra dają najlepsze rezultaty. To właśnie podczas pracy na żywo najłatwiej
+wyłapać szczegóły techniki, rytmu i brzmienia.
+</p>
+<p>
+Mam doświadczenie w pracy zarówno z dziećmi, jak i dorosłymi. Pomagam także w doborze
+sprzętu — gitar, wzmacniaczy i akcesoriów — tak, aby nauka była jak najbardziej komfortowa.
+</p>
+</div>
+
+<div class="about-card about-card-full">
+<h2>Zobacz jak gram</h2>
+<p>
+Jeśli chcesz przekonać się, jak brzmi moja gra, możesz sprawdzić kilka nagrań:
+</p>
+
+<div class="about-videos">
+<a href="https://www.youtube.com/shorts/kcJqu9qxdNA" target="_blank" rel="noopener noreferrer">Floods – Pantera</a>
+<a href="https://youtu.be/5jFdXzgstHM" target="_blank" rel="noopener noreferrer">Comfortably Numb – Pink Floyd</a>
+<a href="https://www.youtube.com/shorts/18Ex3K5uRn8?feature=share" target="_blank" rel="noopener noreferrer">The Trooper (solo) – Iron Maiden</a>
+<a href="https://www.youtube.com/shorts/fJqCqj2HVgo" target="_blank" rel="noopener noreferrer">Nothing Else Matters (solo) – Metallica</a>
+<a href="https://www.youtube.com/shorts/zOxPPgXP2KQ?si=vloF0qVeEgz-hFD5" target="_blank" rel="noopener noreferrer">Wasting Love (solo) – Iron Maiden</a>
+</div>
+</div>
+
+</section>
+
+<section class="about-cta">
+<h2>Zacznij swoją gitarową przygodę</h2>
+<p>
+Niezależnie od tego, czy chcesz nauczyć się grać swoje ulubione utwory, rozwinąć technikę,
+zacząć improwizować czy po prostu wejść w świat gitary — chętnie Ci w tym pomogę.
+</p>
+
+<div class="about-buttons">
+<a class="about-btn about-btn-primary" href="contact.html">Skontaktuj się</a>
+<a class="about-btn about-btn-secondary" href="index.html">Wróć na stronę główną</a>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="footer-copy">
+<p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary</p>
+</div>
+</footer>
+
+</body>
+</html>

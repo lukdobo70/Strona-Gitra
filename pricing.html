@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cennik | Heavy School</title>
+<meta name="description" content="Cennik lekcji gry na gitarze w Heavy School. Sprawdź ceny zajęć indywidualnych i lekcji próbnej." />
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body{
+color:#fff;
+background:
+linear-gradient(rgba(15,15,18,0.82), rgba(15,15,18,0.9)),
+url("bg-body.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+.pricing-main{
+max-width:1000px;
+margin:0 auto;
+padding:120px 20px 80px;
+}
+
+.pricing-hero{
+text-align:center;
+padding:42px 24px;
+margin-bottom:28px;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:22px;
+background:rgba(10,10,12,0.72);
+backdrop-filter:blur(6px);
+box-shadow:0 0 30px rgba(0,0,0,0.2);
+}
+
+.pricing-kicker{
+display:inline-block;
+margin-bottom:16px;
+padding:8px 14px;
+border-radius:999px;
+border:1px solid rgba(255,75,75,0.28);
+background:rgba(0,0,0,0.28);
+color:#ff4b4b;
+font-size:0.8rem;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.pricing-title{
+margin:0 0 16px;
+font-size:clamp(2.2rem,5vw,4rem);
+line-height:1.08;
+}
+
+.pricing-lead{
+max-width:760px;
+margin:0 auto;
+font-size:1.08rem;
+line-height:1.8;
+opacity:0.92;
+}
+
+.pricing-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:24px;
+margin-bottom:28px;
+}
+
+.pricing-card{
+padding:30px 24px;
+border-radius:18px;
+background:rgba(10,10,12,0.78);
+backdrop-filter:blur(6px);
+border:1px solid rgba(255,255,255,0.08);
+border-left:4px solid #b30000;
+box-shadow:0 0 24px rgba(0,0,0,0.16);
+}
+
+.pricing-card h2{
+margin:0 0 14px;
+font-size:1.6rem;
+}
+
+.price-big{
+font-size:2.6rem;
+font-weight:800;
+line-height:1;
+margin:10px 0 18px;
+color:#fff;
+}
+
+.price-note{
+opacity:0.78;
+margin-bottom:18px;
+line-height:1.7;
+}
+
+.pricing-list{
+margin:0;
+padding-left:20px;
+}
+
+.pricing-list li{
+margin-bottom:10px;
+line-height:1.7;
+opacity:0.92;
+}
+
+.pricing-highlight{
+border-left-color:#ff3b3b;
+box-shadow:0 0 28px rgba(179,0,0,0.16);
+}
+
+.pricing-info{
+padding:28px 24px;
+border-radius:18px;
+background:rgba(10,10,12,0.78);
+backdrop-filter:blur(6px);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.pricing-info h2{
+margin:0 0 14px;
+font-size:1.5rem;
+}
+
+.pricing-info p{
+margin:0 0 12px;
+line-height:1.8;
+opacity:0.92;
+}
+
+.pricing-actions{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.pricing-btn{
+padding:14px 22px;
+border-radius:10px;
+font-weight:700;
+text-decoration:none;
+transition:.2s;
+}
+
+.pricing-btn-primary{
+background:#ff3b3b;
+color:#fff;
+}
+
+.pricing-btn-secondary{
+border:2px solid #ff3b3b;
+color:#fff;
+}
+
+.pricing-btn:hover{
+transform:translateY(-2px);
+}
+
+@media(min-width:768px){
+.pricing-grid{
+grid-template-columns:1fr 1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="navbar-container">
+<div class="navbar-logo">Heavy School</div>
+
+<nav class="navbar-menu">
+<ul>
+<li><a href="index.html" class="nav-link">Strona główna</a></li>
+<li><a href="o-mnie.html" class="nav-link">O mnie</a></li>
+<li><a href="materials.html" class="nav-link">Materiały</a></li>
+<li><a href="faq.html" class="nav-link">FAQ</a></li>
+<li><a href="contact.html" class="nav-link">Kontakt</a></li>
+<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+<li><a href="pricing.html" class="nav-link active">Cennik</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main class="pricing-main">
+
+<section class="pricing-hero">
+<div class="pricing-kicker">Cennik</div>
+<h1 class="pricing-title">Prosty i przejrzysty cennik</h1>
+<p class="pricing-lead">
+Zajęcia prowadzę indywidualnie i dopasowuję je do poziomu, celu oraz stylu muzycznego ucznia.
+Pierwsza lekcja to dobra okazja, żeby sprawdzić, czy taka forma nauki jest dla Ciebie.
+</p>
+</section>
+
+<section class="pricing-grid">
+
+<div class="pricing-card pricing-highlight">
+<h2>Pierwsza lekcja próbna</h2>
+<div class="price-big">60 zł</div>
+<p class="price-note">
+Lekcja promocyjna na start. Dobra opcja, żeby się poznać, sprawdzić poziom i ustalić kierunek nauki.
+</p>
+<ul class="pricing-list">
+<li>indywidualne podejście</li>
+<li>ocena poziomu i potrzeb</li>
+<li>plan dalszej nauki</li>
+<li>zajęcia stacjonarne</li>
+</ul>
+</div>
+
+<div class="pricing-card">
+<h2>Standardowa lekcja</h2>
+<div class="price-big">90 zł / h</div>
+<p class="price-note">
+Regularne zajęcia indywidualne dla początkujących i bardziej zaawansowanych uczniów.
+</p>
+<ul class="pricing-list">
+<li>gitara elektryczna, akustyczna lub klasyczna</li>
+<li>technika, rytmika, akordy, skale</li>
+<li>improwizacja i praktyczna teoria</li>
+<li>nauka ulubionych utworów i stylów</li>
+</ul>
+</div>
+
+</section>
+
+<section class="pricing-info">
+<h2>Dodatkowe informacje</h2>
+<p>
+Zajęcia prowadzę stacjonarnie, ponieważ bezpośredni kontakt i wspólna gra dają najlepsze efekty.
+</p>
+<p>
+Lekcje odbywają się u mnie lub u ucznia w Niemodlinie. Dojazd w Opolu i okolicach ustalany jest indywidualnie.
+</p>
+<p>
+Jeżeli chcesz zapytać o wolne terminy, napisz wiadomość lub zadzwoń.
+</p>
+
+<div class="pricing-actions">
+<a class="pricing-btn pricing-btn-primary" href="contact.html">Skontaktuj się</a>
+<a class="pricing-btn pricing-btn-secondary" href="calendar.html">Sprawdź terminarz</a>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="footer-copy">
+<p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary</p>
+</div>
+</footer>
+
+</body>
+</html>

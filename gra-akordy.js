@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentDifficultyLabel = document.getElementById("current-difficulty-label");
   const scoreEl = document.getElementById("chord-score");
   const targetChordEl = document.getElementById("target-chord");
-  const slots = Array.from(document.querySelectorAll(".note-slot"));
+  const slotsContainer = document.getElementById("note-slots");
   const noteBank = document.getElementById("note-bank");
   const checkBtn = document.getElementById("check-chord-btn");
   const clearBtn = document.getElementById("clear-chord-btn");
@@ -237,21 +237,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderSlots() {
     const slotsNeeded = currentChord.notes.length;
+    slotsContainer.innerHTML = "";
 
-    slots.forEach((slot, index) => {
-      if (index < slotsNeeded) {
-        slot.hidden = false;
-        slot.classList.remove("note-slot--hidden");
-        slot.textContent = selectedNotes[index] || "";
-        slot.classList.toggle("filled", Boolean(selectedNotes[index]));
-        slot.disabled = answerLocked;
-      } else {
-        slot.hidden = true;
-        slot.classList.add("note-slot--hidden");
-        slot.textContent = "";
-        slot.classList.remove("filled");
-      }
-    });
+    for (let index = 0; index < slotsNeeded; index++) {
+      const slot = document.createElement("button");
+      slot.type = "button";
+      slot.className = "note-slot";
+      slot.textContent = selectedNotes[index] || "";
+      slot.classList.toggle("filled", Boolean(selectedNotes[index]));
+      slot.disabled = answerLocked;
+
+      slot.addEventListener("click", () => removeNoteFromSlot(index));
+
+      slotsContainer.appendChild(slot);
+    }
   }
 
   function renderNoteBank() {
@@ -402,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timerText.textContent = `Pozostało: ${timeLeft}s`;
     timerFill.style.width = "100%";
 
-    let maxTime = seconds;
+    const maxTime = seconds;
 
     timerInterval = setInterval(() => {
       timeLeft -= 1;
@@ -550,10 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("selected-choice");
       startDifficulty(btn.dataset.difficulty);
     });
-  });
-
-  slots.forEach((slot, index) => {
-    slot.addEventListener("click", () => removeNoteFromSlot(index));
   });
 
   checkBtn.addEventListener("click", checkAnswer);

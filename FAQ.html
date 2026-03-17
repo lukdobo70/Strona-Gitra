@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | Heavy School</title>
+<meta name="description" content="Najczęściej zadawane pytania dotyczące lekcji gry na gitarze w Heavy School." />
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.faq-main{
+  width:min(1100px, calc(100% - 32px));
+  margin:110px auto 2rem auto;
+}
+
+.faq-hero{
+  margin-bottom:1rem;
+}
+
+.faq-hero-box{
+  background:rgba(0,0,0,0.55);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:18px;
+  padding:2.8rem 2.4rem;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.faq-kicker{
+  color:#ddd;
+  font-weight:800;
+  letter-spacing:0.05em;
+  margin-bottom:0.6rem;
+}
+
+.faq-hero-box h1{
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  margin-bottom:1rem;
+  color:#fff;
+}
+
+.faq-lead{
+  max-width:760px;
+  margin:0 auto;
+  color:#d4d4d4;
+  font-size:1.08rem;
+  line-height:1.7;
+}
+
+.faq-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .18s ease, background .18s ease, border-color .2s ease;
+}
+
+.faq-item:hover{
+  transform:translateY(-2px);
+  background:rgba(45,45,45,0.85);
+  border-color:rgba(255,255,255,0.16);
+}
+
+.faq-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:1.35rem 1.4rem;
+  font-size:1.08rem;
+  font-weight:800;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.faq-item summary::-webkit-details-marker{
+  display:none;
+}
+
+.faq-item summary::after{
+  content:"+";
+  flex:0 0 auto;
+  font-size:1.5rem;
+  line-height:1;
+  color:var(--accent);
+  transition:transform .2s ease;
+}
+
+.faq-item[open] summary::after{
+  content:"–";
+}
+
+.faq-answer{
+  padding:0 1.4rem 1.35rem 1.4rem;
+  color:#d0d0d0;
+  line-height:1.8;
+}
+
+.faq-answer p + p{
+  margin-top:0.8rem;
+}
+
+.faq-cta{
+  margin-top:1rem;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:2rem 1.75rem;
+  text-align:center;
+}
+
+.faq-cta h2{
+  font-size:1.9rem;
+  margin-bottom:0.9rem;
+  color:#fff;
+}
+
+.faq-cta p{
+  max-width:760px;
+  margin:0 auto 1.35rem auto;
+  color:#d0d0d0;
+}
+
+.faq-buttons{
+  display:flex;
+  justify-content:center;
+  gap:0.8rem;
+  flex-wrap:wrap;
+}
+
+@media(max-width:700px){
+  .faq-main{
+    width:min(100%, calc(100% - 20px));
+    margin-top:105px;
+  }
+
+  .faq-hero-box{
+    padding:2rem 1.2rem;
+  }
+
+  .faq-hero-box h1{
+    font-size:clamp(1.9rem,7vw,2.6rem);
+  }
+
+  .faq-lead{
+    font-size:1rem;
+  }
+
+  .faq-item summary{
+    padding:1.1rem 1rem;
+    font-size:1rem;
+  }
+
+  .faq-answer{
+    padding:0 1rem 1.1rem 1rem;
+  }
+
+  .faq-cta{
+    padding:1.5rem 1.1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Przejdź do treści</a>
+
+<header class="navbar">
+<div class="navbar-container">
+<div class="navbar-logo">Heavy School</div>
+
+<nav class="navbar-menu" aria-label="Główne menu">
+<ul>
+<li><a href="index.html" class="nav-link">Strona główna</a></li>
+<li><a href="about.html" class="nav-link">O mnie</a></li>
+<li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+<li><a href="faq.html" class="nav-link active">FAQ</a></li>
+<li><a href="contact.html" class="nav-link">Kontakt</a></li>
+<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main id="main" class="faq-main">
+
+<section class="faq-hero">
+  <div class="faq-hero-box">
+    <p class="faq-kicker">Heavy School • FAQ</p>
+    <h1>Najczęściej zadawane pytania</h1>
+    <p class="faq-lead">
+      Masz pytania dotyczące lekcji, poziomu zaawansowania, zapisów albo przebiegu zajęć?
+      Tutaj znajdziesz najważniejsze informacje w prostej i konkretnej formie.
+    </p>
+  </div>
+</section>
+
+<section class="faq-grid">
+
+  <details class="faq-item" open>
+    <summary>Czy mogę zacząć od zera, jeśli nigdy wcześniej nie grałem?</summary>
+    <div class="faq-answer">
+      <p>Tak. Lekcje są również dla osób początkujących, które dopiero zaczynają swoją przygodę z gitarą.</p>
+      <p>Materiał dobierany jest do Twojego poziomu, więc nie musisz mieć wcześniejszego doświadczenia.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Dla kogo są te lekcje?</summary>
+    <div class="faq-answer">
+      <p>Lekcje są przeznaczone dla dzieci, młodzieży i dorosłych.</p>
+      <p>Zarówno dla osób początkujących, jak i tych, które chcą rozwinąć technikę, rytmikę, improwizację czy grę solową.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Jakie style muzyczne mogę ćwiczyć?</summary>
+    <div class="faq-answer">
+      <p>Na lekcjach można pracować nad stylami takimi jak rock, metal, blues, hard rock i innymi pokrewnymi gatunkami.</p>
+      <p>Ważne jest to, żeby kierunek nauki był dopasowany do tego, czego naprawdę chcesz się nauczyć.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Czy muszę mieć własną gitarę?</summary>
+    <div class="faq-answer">
+      <p>Własny instrument bardzo pomaga, bo pozwala ćwiczyć między lekcjami.</p>
+      <p>Jeśli jeszcze nie masz gitary, mogę pomóc w wyborze odpowiedniego sprzętu na start.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Jak wyglądają pierwsze zajęcia?</summary>
+    <div class="faq-answer">
+      <p>Na początku ustalamy Twój poziom, cele i to, na czym najbardziej Ci zależy.</p>
+      <p>Potem dobierany jest plan nauki, żebyś od początku ćwiczył rzeczy przydatne i zrozumiałe.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Czy lekcje odbywają się stacjonarnie czy online?</summary>
+    <div class="faq-answer">
+      <p>Lekcje prowadzę stacjonarnie.</p>
+      <p>To najlepsza forma pracy, bo pozwala szybciej wychwycić błędy techniczne, poprawić rytm i lepiej kontrolować postępy.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Jak długo trwają zajęcia?</summary>
+    <div class="faq-answer">
+      <p>Czas trwania lekcji ustalany jest indywidualnie.</p>
+      <p>Najważniejsze jest to, żeby forma zajęć była wygodna i skuteczna dla ucznia.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Czy mogę uczyć się konkretnych utworów?</summary>
+    <div class="faq-answer">
+      <p>Tak. Możemy pracować na konkretnych riffach, solówkach i utworach, które lubisz.</p>
+      <p>To często bardzo dobry sposób na rozwój techniki i utrzymanie motywacji.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Czy pomagasz też w teorii muzyki?</summary>
+    <div class="faq-answer">
+      <p>Tak, ale w praktyczny sposób.</p>
+      <p>Teoria jest omawiana tak, żeby realnie pomagała w grze, improwizacji, budowie akordów i rozumieniu muzyki.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Jak umówić się na lekcję?</summary>
+    <div class="faq-answer">
+      <p>Najprościej skontaktować się telefonicznie lub mailowo przez zakładkę Kontakt.</p>
+      <p>W wiadomości możesz od razu napisać, na jakim jesteś poziomie i czego chcesz się nauczyć.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>Czy mogę odwołać lub przełożyć lekcję?</summary>
+    <div class="faq-answer">
+      <p>Tak, ale najlepiej zrobić to z odpowiednim wyprzedzeniem.</p>
+      <p>Szczegółowe zasady dotyczące odwoływania zajęć znajdziesz w zakładce Regulamin.</p>
+    </div>
+  </details>
+
+</section>
+
+<section class="faq-cta">
+  <h2>Nie znalazłeś odpowiedzi?</h2>
+  <p>
+    Jeśli masz inne pytania, skontaktuj się bezpośrednio. Chętnie odpowiem i pomogę dobrać najlepszy sposób rozpoczęcia nauki.
+  </p>
+
+  <div class="faq-buttons">
+    <a href="contact.html" class="btn primary-btn">Przejdź do kontaktu</a>
+    <a href="about.html" class="btn secondary-btn">Dowiedz się więcej o mnie</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="footer-copy">
+<p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary</p>
+</div>
+</footer>
+
+</body>
+</html>

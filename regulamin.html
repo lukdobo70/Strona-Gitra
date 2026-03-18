@@ -114,18 +114,55 @@ body{
   <div class="navbar-container">
     <div class="navbar-logo">Heavy School</div>
 
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Otwórz menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <nav class="navbar-menu" aria-label="Główne menu">
       <ul>
-        <li><a href="index.html" class="nav-link">Strona główna</a></li>
-        <li><a href="about.html" class="nav-link">O mnie</a></li>
-        <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
-        <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
-        <li><a href="contact.html" class="nav-link">Kontakt</a></li>
-        <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
-        <li><a href="regulamin.html" class="nav-link active">Regulamin</a></li>
+        <nav class="navbar-menu">
+<ul>
+<li><a href="index.html" class="nav-link active">Strona główna</a></li>
+<li><a href="about.html" class="nav-link">O mnie</a></li>
+<li><a href="materialy.html" class="nav-link">Materiały</a></li>
+<li><a href="faq.html" class="nav-link">FAQ</a></li>
+<li><a href="contact.html" class="nav-link">Kontakt</a></li>
+<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+</ul>
+</nav>
       </ul>
     </nav>
   </div>
+
+  <div class="mobile-nav-overlay"></div>
+
+  <nav class="mobile-nav" id="mobile-menu" aria-label="Menu mobilne">
+    <div class="mobile-nav-top">
+      <div class="mobile-nav-title">Menu</div>
+      <button class="mobile-nav-close" type="button" aria-label="Zamknij menu">×</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <ul class="mobile-nav-list">
+<li><a href="index.html" class="nav-link active">Strona główna</a></li>
+<li><a href="about.html" class="nav-link">O mnie</a></li>
+<li><a href="materialy.html" class="nav-link">Materiały</a></li>
+<li><a href="faq.html" class="nav-link">FAQ</a></li>
+<li><a href="contact.html" class="nav-link">Kontakt</a></li>
+<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+</ul>
+    </ul>
+  </nav>
 </header>
 
 <main class="rules-main">

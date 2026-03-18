@@ -94,3 +94,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const rounded = Math.round(Number(average));
   ratingStars.textContent = "★".repeat(rounded) + "☆".repeat(5 - rounded);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const body = document.body;
+  const openBtn = document.querySelector(".nav-toggle");
+  const closeBtn = document.querySelector(".mobile-nav-close");
+  const overlay = document.querySelector(".mobile-nav-overlay");
+  const mobileLinks = document.querySelectorAll(".mobile-nav a");
+
+  if (!openBtn || !closeBtn || !overlay) return;
+
+  function openMenu() {
+    body.classList.add("mobile-nav-open");
+    openBtn.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    body.classList.remove("mobile-nav-open");
+    openBtn.setAttribute("aria-expanded", "false");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeMenu();
+    }
+  });
+});

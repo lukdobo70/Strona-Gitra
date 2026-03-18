@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQ | Heavy School</title>
-<meta name="description" content="Najczęściej zadawane pytania dotyczące lekcji gry na gitarze w Heavy School." />
-<link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico">
+  <title>FAQ | Heavy School</title>
+  <meta name="description" content="Najczęściej zadawane pytania dotyczące lekcji gry na gitarze w Heavy School." />
+
+  <link rel="stylesheet" href="styles.css?v=20260306-4" />
+  <script src="main.js?v=20260306-4"></script>
+  <meta name="google-site-verification" content="G3vq97RoQij3gIvJFTQrUj_WkqTkKLhGXLMOlvkvJdg" />
+</head>
 
 <style>
-.faq-main{
-  width:min(1100px, calc(100% - 32px));
-  margin:110px auto 2rem auto;
-}
-
 .faq-hero{
   margin-bottom:1rem;
 }
@@ -176,22 +175,53 @@
 
 <a class="skip-link" href="#main">Przejdź do treści</a>
 
-<header class="navbar">
-<div class="navbar-container">
-<div class="navbar-logo">Heavy School</div>
+  <header class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">Heavy School</div>
 
-<nav class="navbar-menu" aria-label="Główne menu">
-<ul>
-<li><a href="index.html" class="nav-link">Strona główna</a></li>
-<li><a href="about.html" class="nav-link">O mnie</a></li>
-<li><a href="Materiały.html" class="nav-link">Materiały</a></li>
-<li><a href="faq.html" class="nav-link active">FAQ</a></li>
-<li><a href="contact.html" class="nav-link">Kontakt</a></li>
-<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
-<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
-</ul>
-</nav>
-</div>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Otwórz menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navbar-menu" aria-label="Główne menu">
+      <ul>
+        <li><a href="index.html" class="nav-link">Strona główna</a></li>
+        <li><a href="about.html" class="nav-link">O mnie</a></li>
+        <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+        <li><a href="FAQ.html" class="nav-link active">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+        <li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="mobile-nav-overlay"></div>
+
+  <nav class="mobile-nav" id="mobile-menu" aria-label="Menu mobilne">
+    <div class="mobile-nav-top">
+      <div class="mobile-nav-title">Menu</div>
+      <button class="mobile-nav-close" type="button" aria-label="Zamknij menu">×</button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="nav-link">Strona główna</a></li>
+      <li><a href="about.html" class="nav-link">O mnie</a></li>
+      <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+      <li><a href="FAQ.html" class="nav-link active">FAQ</a></li>
+      <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+      <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+      <li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main id="main" class="faq-main">

@@ -94,3 +94,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const rounded = Math.round(Number(average));
   ratingStars.textContent = "★".repeat(rounded) + "☆".repeat(5 - rounded);
 });
+
+// ========== MOBILE SIDEBAR JS ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const sidebarClose = document.getElementById('sidebar-close');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const sidebarNav = document.getElementById('mobile-nav');
+  const navLinks = sidebarNav?.querySelectorAll('a.nav-link');
+
+  if (!hamburgerBtn || !sidebarOverlay || !sidebarClose || !sidebarNav) return;
+
+  const toggleSidebar = () => {
+    document.body.classList.toggle('sidebar-open');
+    const isOpen = document.body.classList.contains('sidebar-open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    hamburgerBtn.focus(); // accessibility
+  };
+
+  const closeSidebar = () => {
+    document.body.classList.remove('sidebar-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    hamburgerBtn.focus();
+  };
+
+  // Hamburger toggle
+  hamburgerBtn.addEventListener('click', toggleSidebar);
+
+  // Overlay close
+  sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // Close button
+  sidebarClose.addEventListener('click', closeSidebar);
+
+  // Nav links close sidebar
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeSidebar);
+  });
+
+  // ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('sidebar-open')) {
+      closeSidebar();
+    }
+  });
+
+  // Resize close
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && document.body.classList.contains('sidebar-open')) {
+      closeSidebar();
+    }
+  });
+});

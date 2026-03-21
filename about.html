@@ -11,7 +11,304 @@
 </head>
 
 <style>
-/* TWÓJ CSS O MNIE ZOSTAJE BEZ ZMIAN */
+/* ========== O MNIE / ABOUT PAGE ========== */
+
+.about-main {
+  width: min(1100px, calc(100% - 32px));
+  margin: 110px auto 2.5rem auto;
+  flex-grow: 1;
+}
+
+/* ===== HERO ===== */
+.about-hero {
+  position: relative;
+  min-height: 48vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-image: url("glowne-tlo-2.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.38), rgba(0,0,0,0.62));
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 48vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+}
+
+.about-kicker {
+  color: rgba(255,255,255,0.82);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.about-title {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.08;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.about-lead {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ===== GRID ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.2s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-3px);
+  background: rgba(45,45,45,0.85);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.about-card h2 {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.about-card p {
+  color: #d0d0d0;
+  margin-bottom: 0.95rem;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.about-card-full {
+  grid-column: 1 / -1;
+}
+
+/* ===== LISTA ===== */
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.4rem;
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin: 0.65rem 0;
+  color: #d6d6d6;
+}
+
+.about-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+/* ===== LINKI DO VIDEO ===== */
+.about-videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.about-videos a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 800;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-videos a:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+  background: rgba(255,0,0,0.14);
+  border-color: rgba(255,0,0,0.42);
+  box-shadow: 0 0 18px rgba(255,0,0,0.22);
+}
+
+/* ===== CTA ===== */
+.about-cta {
+  margin-top: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.75rem;
+  text-align: center;
+}
+
+.about-cta h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.9rem;
+  color: #ffffff;
+}
+
+.about-cta p {
+  max-width: 760px;
+  margin: 0 auto 1.35rem auto;
+  color: #d0d0d0;
+}
+
+.about-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.about-btn {
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+}
+
+.about-btn:active {
+  transform: translateY(1px);
+}
+
+.about-btn-primary {
+  background-color: var(--accent-2);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.about-btn-primary:hover {
+  background-color: var(--accent);
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.45);
+}
+
+.about-btn-secondary {
+  background-color: rgba(0,0,0,0.25);
+  border-color: rgba(255,255,255,0.2);
+  color: #ffffff;
+}
+
+.about-btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.25);
+}
+
+/* ===== FOOTER DOPASOWANIE ===== */
+.footer {
+  background-color: rgba(14, 14, 18, 0.9);
+  color: white;
+  padding: 2rem 1rem 1rem 1rem;
+  font-size: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 2rem;
+}
+
+.footer-copy {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 980px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card-full {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-main {
+    width: min(100%, calc(100% - 20px));
+    margin-top: 105px;
+  }
+
+  .about-hero {
+    min-height: auto;
+    border-radius: 18px;
+  }
+
+  .about-hero-content {
+    padding: 2rem 1.2rem;
+    width: calc(100% - 20px);
+  }
+
+  .about-title {
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+  }
+
+  .about-lead {
+    font-size: 1rem;
+  }
+
+  .about-card {
+    padding: 1.25rem;
+  }
+
+  .about-cta {
+    padding: 1.5rem 1.1rem;
+  }
+}
 </style>
 
 <body>
@@ -34,7 +331,7 @@ aria-controls="mobile-menu"
 <span></span>
 </button>
 
-<nav class="navbar-menu">
+<nav class="navbar-menu" aria-label="Główne menu">
 <ul>
 <li><a href="index.html" class="nav-link">Strona główna</a></li>
 <li><a href="about.html" class="nav-link active">O mnie</a></li>
@@ -59,7 +356,7 @@ aria-controls="mobile-menu"
 </button>
 </div>
 
-<nav class="mobile-sidebar-nav">
+<nav class="mobile-sidebar-nav" aria-label="Mobilne menu">
 <ul>
 <li><a href="index.html" class="mobile-nav-link">Strona główna</a></li>
 <li><a href="about.html" class="mobile-nav-link active">O mnie</a></li>
@@ -74,7 +371,101 @@ aria-controls="mobile-menu"
 
 <main id="main" class="about-main">
 
-<!-- RESZTA TWOJEJ STRONY O MNIE ZOSTAJE BEZ ZMIAN -->
+<section class="about-hero">
+  <div class="about-hero-content">
+    <div class="about-kicker">O mnie</div>
+    <h1 class="about-title">Gitarzysta z doświadczeniem scenicznym i w nauczaniu</h1>
+    <p class="about-lead">
+      Nazywam się Łukasz Dobosz i od wielu lat gitara jest nieodłączną częścią mojego życia.
+      Gram rytmicznie i solowo, występuję na scenie z zespołem oraz prowadzę indywidualne lekcje
+      gry na gitarze dla dzieci, młodzieży i dorosłych.
+    </p>
+  </div>
+</section>
+
+<section class="about-grid">
+
+<div class="about-card">
+<h2>Gitara to coś więcej niż instrument</h2>
+<p>
+Muzyka to dla mnie nie tylko hobby, ale przede wszystkim pasja i sposób wyrażania siebie.
+Na zajęciach staram się przekazywać nie tylko wiedzę techniczną, ale też podejście do grania,
+które buduje pewność siebie, muzykalność i własny styl.
+</p>
+<p>
+Pracuję z osobami początkującymi oraz bardziej zaawansowanymi, zawsze dopasowując materiał
+do poziomu, celów i tempa nauki ucznia.
+</p>
+</div>
+
+<div class="about-card">
+<h2>Doświadczenie</h2>
+<p>
+Posiadam ponad 9 lat doświadczenia w grze na gitarze oraz ponad rok w nauczaniu.
+Łączę praktykę sceniczną z podejściem pedagogicznym, dzięki czemu uczniowie uczą się
+nie tylko co grać, ale również jak grać świadomie i muzycznie.
+</p>
+<p>
+Posiadam same pozytywne opinie, a na lekcjach stawiam na przyjazną, motywującą atmosferę
+i realny rozwój umiejętności.
+</p>
+</div>
+
+<div class="about-card">
+<h2>Czego możesz się nauczyć</h2>
+<ul class="about-list">
+<li>akordów, skal i rytmiki</li>
+<li>podstawowych i zaawansowanych technik gry</li>
+<li>improwizacji i tworzenia własnych kompozycji</li>
+<li>praktycznego podejścia do teorii muzyki</li>
+<li>gry w stylach takich jak Blues, Rock, Metal, Jazz i inne</li>
+<li>pracy z efektami gitarowymi i sprzętem</li>
+<li>przygotowania do grania w zespole lub na scenie</li>
+</ul>
+</div>
+
+<div class="about-card">
+<h2>Jak wyglądają lekcje</h2>
+<p>
+Zajęcia prowadzę wyłącznie stacjonarnie, ponieważ uważam, że bezpośredni kontakt
+i wspólna gra dają najlepsze rezultaty. To właśnie podczas pracy na żywo najłatwiej
+wyłapać szczegóły techniki, rytmu i brzmienia.
+</p>
+<p>
+Mam doświadczenie w pracy zarówno z dziećmi, jak i dorosłymi. Pomagam także w doborze
+sprzętu — gitar, wzmacniaczy i akcesoriów — tak, aby nauka była jak najbardziej komfortowa.
+</p>
+</div>
+
+<div class="about-card about-card-full">
+<h2>Zobacz jak gram</h2>
+<p>
+Jeśli chcesz przekonać się, jak brzmi moja gra, możesz sprawdzić kilka nagrań:
+</p>
+
+<div class="about-videos">
+<a href="https://www.youtube.com/shorts/kcJqu9qxdNA" target="_blank" rel="noopener noreferrer">Floods – Pantera</a>
+<a href="https://youtu.be/5jFdXzgstHM" target="_blank" rel="noopener noreferrer">Comfortably Numb – Pink Floyd</a>
+<a href="https://www.youtube.com/shorts/18Ex3K5uRn8?feature=share" target="_blank" rel="noopener noreferrer">The Trooper (solo) – Iron Maiden</a>
+<a href="https://www.youtube.com/shorts/fJqCqj2HVgo" target="_blank" rel="noopener noreferrer">Nothing Else Matters (solo) – Metallica</a>
+<a href="https://www.youtube.com/shorts/zOxPPgXP2KQ?si=vloF0qVeEgz-hFD5" target="_blank" rel="noopener noreferrer">Wasting Love (solo) – Iron Maiden</a>
+</div>
+</div>
+
+</section>
+
+<section class="about-cta">
+<h2>Zacznij swoją gitarową przygodę</h2>
+<p>
+Niezależnie od tego, czy chcesz nauczyć się grać swoje ulubione utwory, rozwinąć technikę,
+zacząć improwizować czy po prostu wejść w świat gitary — chętnie Ci w tym pomogę.
+</p>
+
+<div class="about-buttons">
+<a class="about-btn about-btn-primary" href="contact.html">Skontaktuj się</a>
+<a class="about-btn about-btn-secondary" href="index.html">Wróć na stronę główną</a>
+</div>
+</section>
 
 </main>
 

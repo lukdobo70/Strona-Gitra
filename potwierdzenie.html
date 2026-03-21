@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potwierdzenie wysłania | Heavy School</title>
+  <meta
+    name="description"
+    content="Potwierdzenie wysłania formularza kontaktowego w Heavy School."
+  />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="styles.css?v=20260306-4" />
+  <script src="main.js?v=20260306-4" defer></script>
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    .confirm-main {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 40px;
+    }
+
+    .confirm-box {
+      width: min(820px, 100%);
+      text-align: center;
+      padding: 3rem 2rem;
+      background: rgba(12, 12, 12, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      box-shadow: 0 0 40px rgba(179, 0, 0, 0.16), var(--shadow);
+    }
+
+    .confirm-icon {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 1.4rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 0 22px rgba(255, 0, 0, 0.3);
+    }
+
+    .confirm-kicker {
+      color: #ff4b4b;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      font-size: 0.88rem;
+    }
+
+    .confirm-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .confirm-lead {
+      max-width: 680px;
+      margin: 0 auto 1rem;
+      color: #d5d5d5;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .confirm-note {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #bdbdbd;
+      line-height: 1.8;
+    }
+
+    .confirm-info {
+      margin: 1.6rem auto 0;
+      width: min(620px, 100%);
+      text-align: left;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.2rem 1.2rem;
+    }
+
+    .confirm-info h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .confirm-info ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: #d5d5d5;
+    }
+
+    .confirm-info li {
+      margin-bottom: 0.55rem;
+      line-height: 1.7;
+    }
+
+    .confirm-actions {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .confirm-extra {
+      margin-top: 1.2rem;
+      color: #9f9f9f;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      .confirm-main {
+        padding: 105px 14px 30px;
+      }
+
+      .confirm-box {
+        padding: 2.2rem 1.1rem;
+        border-radius: 18px;
+      }
+
+      .confirm-lead,
+      .confirm-note {
+        font-size: 1rem;
+      }
+
+      .confirm-info {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">Heavy School</div>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Otwórz menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar-menu" aria-label="Główne menu">
+        <ul>
+          <li><a href="index.html" class="nav-link">Strona główna</a></li>
+          <li><a href="about.html" class="nav-link">O mnie</a></li>
+          <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+          <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+          <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+          <li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <aside class="mobile-sidebar" id="mobile-menu" aria-label="Menu mobilne">
+    <div class="mobile-sidebar-top">
+      <div class="mobile-sidebar-logo">Heavy School</div>
+
+      <button class="sidebar-close" type="button" aria-label="Zamknij menu">
+        &times;
+      </button>
+    </div>
+
+    <nav class="mobile-sidebar-nav" aria-label="Mobilne menu">
+      <ul>
+        <li><a href="index.html" class="mobile-nav-link">Strona główna</a></li>
+        <li><a href="about.html" class="mobile-nav-link">O mnie</a></li>
+        <li><a href="Materiały.html" class="mobile-nav-link">Materiały</a></li>
+        <li><a href="FAQ.html" class="mobile-nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Kontakt</a></li>
+        <li><a href="gry.html" class="mobile-nav-link">Nauka przez zabawę</a></li>
+        <li><a href="regulamin.html" class="mobile-nav-link">Regulamin</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="main" class="confirm-main">
+    <section class="confirm-box">
+      <div class="confirm-icon">✓</div>
+
+      <p class="confirm-kicker">Heavy School • Potwierdzenie</p>
+
+      <h1 class="confirm-title">Wiadomość została wysłana</h1>
+
+      <p class="confirm-lead">
+        Dziękuję za kontakt. Twoje zgłoszenie dotyczące lekcji gry na gitarze
+        dotarło poprawnie.
+      </p>
+
+      <p class="confirm-note">
+        Zapoznam się z wiadomością i odezwę się tak szybko, jak będzie to
+        możliwe. Jeśli podałeś numer telefonu lub adres e-mail, kontakt zwrotny
+        otrzymasz właśnie tą drogą.
+      </p>
+
+      <div class="confirm-info">
+        <h2>Co dalej?</h2>
+        <ul>
+          <li>sprawdzę przesłane dane i treść wiadomości,</li>
+          <li>odpowiem na pytania lub zaproponuję dalszy krok,</li>
+          <li>w razie potrzeby ustalimy dogodny termin pierwszej lekcji.</li>
+        </ul>
+      </div>
+
+      <div class="confirm-actions">
+        <a href="index.html" class="btn primary-btn">Wróć na stronę główną</a>
+        <a href="contact.html" class="btn secondary-btn">Wróć do kontaktu</a>
+      </div>
+
+      <p class="confirm-extra">
+        W pilnych sprawach możesz też zadzwonić: <strong>+48 797 118 603</strong>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-copy">
+      <p>&copy; 2025 Łukasz Dobosz – Lekcje Gitary</p>
+    </div>
+  </footer>
+</body>
+</html>

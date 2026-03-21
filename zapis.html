@@ -243,7 +243,12 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBklNsArzMZeayuvt79Edga9XK-14-MQTQ",
@@ -264,11 +269,11 @@ const formMessage = document.getElementById("formMessage");
 const rodzajGitary = document.getElementById("rodzajGitary");
 const gitaraRadios = document.querySelectorAll('input[name="gitara"]');
 
-// Czas wejścia na formularz — antybot
 const formStartTime = Date.now();
 const MIN_FILL_TIME_SECONDS = 4;
 
 function setMessage(text, isError = false) {
+  if (!formMessage) return;
   formMessage.textContent = text;
   formMessage.classList.toggle("error", isError);
 }
@@ -284,7 +289,24 @@ function updateGitaraSelect() {
   }
 }
 
-gitaraRadios.forEach(radio => {
+function normalizePhone(phone) {
+  return phone.replace(/[^\d+]/g, "");
+}
+
+function getTodayKey() {
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function makeSubmissionId(phone, dayKey) {
+  const safePhone = normalizePhone(phone).replace(/\+/g, "plus");
+  return `${dayKey}__${safePhone}`;
+}
+
+gitaraRadios.forEach((radio) => {
   radio.addEventListener("change", updateGitaraSelect);
 });
 
@@ -294,48 +316,45 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   setMessage("");
 
-  // Honeypot
-  const honeypot = document.getElementById("website").value.trim();
-  if (honeypot !== "") {
+  const honeypot = document.getElementById("website")?.value.trim();
+  if (honeypot) {
     setMessage("Wykryto nieprawidłowe wysłanie formularza.", true);
     return;
   }
 
-  // Minimalny czas wypełnienia
   const elapsedSeconds = (Date.now() - formStartTime) / 1000;
   if (elapsedSeconds < MIN_FILL_TIME_SECONDS) {
-    setMessage("Formularz został wysłany zbyt szybko. Spróbuj ponownie za chwilę.", true);
+    setMessage("Formularz został wysłany zbyt szybko. Spróbuj ponownie.", true);
     return;
   }
 
-  // Walidacja pól
   const imie = document.getElementById("imie").value.trim();
   const nazwisko = document.getElementById("nazwisko").value.trim();
-  const wiek = document.getElementById("wiek").value.trim();
-  const telefon = document.getElementById("telefon").value.trim();
+  const wiek = Number(document.getElementById("wiek").value);
+  const telefon = normalizePhone(document.getElementById("telefon").value.trim());
   const gitara = document.querySelector('input[name="gitara"]:checked')?.value || "";
   const rodzaj = document.getElementById("rodzajGitary").value;
   const poziom = document.getElementById("poziom").value;
   const dniGodziny = document.getElementById("dniGodziny").value.trim();
   const info = document.getElementById("info").value.trim();
 
-  if (!imie || !nazwisko || !wiek || !telefon || !gitara || !poziom) {
+  if (!imie || !nazwisko || !telefon || !gitara || !poziom || !Number.isFinite(wiek)) {
     setMessage("Uzupełnij wszystkie wymagane pola.", true);
     return;
   }
 
-  const wiekNumber = Number(wiek);
-  if (!Number.isFinite(wiekNumber) || wiekNumber < 5 || wiekNumber > 100) {
+  if (!Number.isInteger(wiek) || wiek < 5 || wiek > 100) {
     setMessage("Podaj poprawny wiek ucznia.", true);
     return;
   }
 
-  const telefonClean = telefon.replace(/\s+/g, "");
-  const phoneRegex = /^[+0-9]{7,15}$/;
-  if (!phoneRegex.test(telefonClean)) {
+  if (!/^[+0-9]{7,15}$/.test(telefon)) {
     setMessage("Podaj poprawny numer telefonu.", true);
     return;
   }
+
+  const dayKey = getTodayKey();
+  const submissionId = makeSubmissionId(telefon, dayKey);
 
   submitButton.disabled = true;
   submitButton.textContent = "Wysyłanie...";
@@ -343,22 +362,23 @@ form.addEventListener("submit", async (e) => {
   const data = {
     imie,
     nazwisko,
-    wiek: wiekNumber,
-    telefon: telefonClean,
+    wiek,
+    telefon,
     gitara,
     rodzajGitary: gitara === "Nie" ? "Brak" : rodzaj,
     poziom,
     dniGodziny,
     info,
-    data: serverTimestamp()
+    dayKey: submissionId,
+    createdAt: serverTimestamp()
   };
 
   try {
-    await addDoc(collection(db, "zgloszenia"), data);
+    await setDoc(doc(db, "zgloszenia", submissionId), data);
     window.location.href = "potwierdzenie.html";
   } catch (err) {
     console.error(err);
-    setMessage("Błąd wysyłania. Spróbuj ponownie.", true);
+    setMessage("To zgłoszenie dla tego numeru zostało już dziś wysłane albo zostało zablokowane.", true);
     submitButton.disabled = false;
     submitButton.textContent = "Wyślij zgłoszenie";
   }

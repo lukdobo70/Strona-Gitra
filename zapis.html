@@ -258,8 +258,6 @@ form.addEventListener("submit", async (e) => {
 
     await addDoc(collection(db, "zgloszenia"), data);
 
-    alert("ZGŁOSZENIE WYSŁANE 🔥");
-
     window.location.href = "potwierdzenie.html";
 
   } catch (err) {

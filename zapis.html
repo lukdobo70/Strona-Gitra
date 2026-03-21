@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zapis na lekcje | Heavy School</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+
+.signup-main{
+width:min(800px, calc(100% - 32px));
+margin:110px auto 60px;
+}
+
+.signup-box{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:40px;
+box-shadow:var(--shadow);
+}
+
+.signup-title{
+font-size:2.2rem;
+margin-bottom:10px;
+text-align:center;
+}
+
+.signup-lead{
+text-align:center;
+opacity:0.8;
+margin-bottom:30px;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:6px;
+font-weight:700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.15);
+background:#111;
+color:#fff;
+font-size:1rem;
+}
+
+.form-group textarea{
+min-height:100px;
+resize:vertical;
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.form-radio{
+display:flex;
+gap:15px;
+margin-top:6px;
+}
+
+.form-submit{
+margin-top:25px;
+text-align:center;
+}
+
+.submit-btn{
+padding:14px 26px;
+border-radius:999px;
+font-weight:900;
+background:var(--accent);
+color:#fff;
+border:none;
+cursor:pointer;
+transition:.2s;
+}
+
+.submit-btn:hover{
+box-shadow:0 0 20px rgba(255,0,0,0.5);
+transform:translateY(-2px);
+}
+
+@media(max-width:700px){
+.form-row{
+grid-template-columns:1fr;
+}
+
+.signup-box{
+padding:25px 18px;
+}
+
+.signup-title{
+font-size:1.8rem;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="navbar-container">
+<div class="navbar-logo">Heavy School</div>
+
+<nav class="navbar-menu">
+<ul>
+<li><a href="index.html" class="nav-link">Strona główna</a></li>
+<li><a href="about.html" class="nav-link">O mnie</a></li>
+<li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+<li><a href="faq.html" class="nav-link">FAQ</a></li>
+<li><a href="contact.html" class="nav-link">Kontakt</a></li>
+<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main class="signup-main">
+
+<div class="signup-box">
+
+<h1 class="signup-title">Zapis na lekcje gitary</h1>
+<p class="signup-lead">
+Wypełnij formularz — skontaktuję się z Tobą w celu ustalenia terminu.
+</p>
+
+<form id="signupForm">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="imie">Imię</label>
+      <input type="text" id="imie" name="imie" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nazwisko">Nazwisko</label>
+      <input type="text" id="nazwisko" name="nazwisko" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="wiek">Wiek ucznia</label>
+    <input type="number" id="wiek" name="wiek" required>
+  </div>
+
+  <div class="form-group">
+    <label for="telefon">Numer telefonu (uczeń lub rodzic/opiekun)</label>
+    <input type="tel" id="telefon" name="telefon" required>
+  </div>
+
+  <div class="form-group">
+    <label>Czy posiadasz gitarę?</label>
+    <div class="form-radio">
+      <label><input type="radio" name="gitara" value="Tak" required> Tak</label>
+      <label><input type="radio" name="gitara" value="Nie"> Nie</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="rodzajGitary">Jeśli tak — jaką gitarę?</label>
+    <select id="rodzajGitary" name="rodzajGitary">
+      <option value="Brak">Brak</option>
+      <option value="Klasyczna">Klasyczna</option>
+      <option value="Akustyczna">Akustyczna</option>
+      <option value="Elektryczna">Elektryczna</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="poziom">Poziom zaawansowania</label>
+    <select id="poziom" name="poziom" required>
+      <option value="Początkujący">Początkujący</option>
+      <option value="Średniozaawansowany">Średniozaawansowany</option>
+      <option value="Zaawansowany">Zaawansowany</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="dniGodziny">Preferowane dni / godziny</label>
+    <input type="text" id="dniGodziny" name="dniGodziny">
+  </div>
+
+  <div class="form-group">
+    <label for="info">Dodatkowe informacje</label>
+    <textarea id="info" name="info" placeholder="np. ulubiony styl, cele, pytania..."></textarea>
+  </div>
+
+  <div class="form-submit">
+    <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
+  </div>
+
+</form>
+
+</div>
+
+</main>
+
+<footer class="footer">
+<div class="footer-copy">
+<p>&copy; 2025 Heavy School</p>
+</div>
+</footer>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBklNsArzMZeayuvt79Edga9XK-14-MQTQ",
+  authDomain: "heavyshool.firebaseapp.com",
+  projectId: "heavyshool",
+  storageBucket: "heavyshool.firebasestorage.app",
+  messagingSenderId: "1023186905945",
+  appId: "1:1023186905945:web:46c30192d979ac9c15fa48",
+  measurementId: "G-3B6Y3XJ52N"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const form = document.getElementById("signupForm");
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const data = {
+    imie: document.getElementById("imie").value,
+    nazwisko: document.getElementById("nazwisko").value,
+    wiek: document.getElementById("wiek").value,
+    telefon: document.getElementById("telefon").value,
+    gitara: document.querySelector('input[name="gitara"]:checked')?.value,
+    rodzajGitary: document.getElementById("rodzajGitary").value,
+    poziom: document.getElementById("poziom").value,
+    dniGodziny: document.getElementById("dniGodziny").value,
+    info: document.getElementById("info").value,
+    data: serverTimestamp()
+  };
+
+  try {
+
+    await addDoc(collection(db, "zgloszenia"), data);
+
+    alert("ZGŁOSZENIE WYSŁANE 🔥");
+
+    window.location.href = "potwierdzenie.html";
+
+  } catch (err) {
+
+    alert("Błąd wysyłania");
+    console.log(err);
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -8,217 +8,240 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-
 .signup-main{
-width:min(800px, calc(100% - 32px));
-margin:110px auto 60px;
+  width:min(800px, calc(100% - 32px));
+  margin:110px auto 60px;
 }
 
 .signup-box{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:18px;
-padding:40px;
-box-shadow:var(--shadow);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:40px;
+  box-shadow:var(--shadow);
 }
 
 .signup-title{
-font-size:2.2rem;
-margin-bottom:10px;
-text-align:center;
+  font-size:2.2rem;
+  margin-bottom:10px;
+  text-align:center;
 }
 
 .signup-lead{
-text-align:center;
-opacity:0.8;
-margin-bottom:30px;
+  text-align:center;
+  opacity:0.8;
+  margin-bottom:30px;
 }
 
 .form-group{
-margin-bottom:18px;
+  margin-bottom:18px;
 }
 
 .form-group label{
-display:block;
-margin-bottom:6px;
-font-weight:700;
+  display:block;
+  margin-bottom:6px;
+  font-weight:700;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.15);
-background:#111;
-color:#fff;
-font-size:1rem;
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:#111;
+  color:#fff;
+  font-size:1rem;
 }
 
 .form-group textarea{
-min-height:100px;
-resize:vertical;
+  min-height:100px;
+  resize:vertical;
 }
 
 .form-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
 
 .form-radio{
-display:flex;
-gap:15px;
-margin-top:6px;
+  display:flex;
+  gap:15px;
+  margin-top:6px;
 }
 
 .form-submit{
-margin-top:25px;
-text-align:center;
+  margin-top:25px;
+  text-align:center;
 }
 
 .submit-btn{
-padding:14px 26px;
-border-radius:999px;
-font-weight:900;
-background:var(--accent);
-color:#fff;
-border:none;
-cursor:pointer;
-transition:.2s;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:900;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .submit-btn:hover{
-box-shadow:0 0 20px rgba(255,0,0,0.5);
-transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(255,0,0,0.5);
+  transform:translateY(-2px);
+}
+
+.honeypot{
+  position:absolute !important;
+  left:-9999px !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+  height:0 !important;
+  width:0 !important;
+  overflow:hidden !important;
+}
+
+.form-message{
+  text-align:center;
+  margin-top:14px;
+  font-size:0.95rem;
+  min-height:20px;
+}
+
+.form-message.error{
+  color:#ff8a8a;
 }
 
 @media(max-width:700px){
-.form-row{
-grid-template-columns:1fr;
-}
+  .form-row{
+    grid-template-columns:1fr;
+  }
 
-.signup-box{
-padding:25px 18px;
-}
+  .signup-box{
+    padding:25px 18px;
+  }
 
-.signup-title{
-font-size:1.8rem;
+  .signup-title{
+    font-size:1.8rem;
+  }
 }
-}
-
 </style>
 </head>
 
 <body>
 
 <header class="navbar">
-<div class="navbar-container">
-<div class="navbar-logo">Heavy School</div>
+  <div class="navbar-container">
+    <div class="navbar-logo">Heavy School</div>
 
-<nav class="navbar-menu">
-<ul>
-<li><a href="index.html" class="nav-link">Strona główna</a></li>
-<li><a href="about.html" class="nav-link">O mnie</a></li>
-<li><a href="Materiały.html" class="nav-link">Materiały</a></li>
-<li><a href="faq.html" class="nav-link">FAQ</a></li>
-<li><a href="contact.html" class="nav-link">Kontakt</a></li>
-<li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
-<li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
-</ul>
-</nav>
-</div>
+    <nav class="navbar-menu">
+      <ul>
+        <li><a href="index.html" class="nav-link">Strona główna</a></li>
+        <li><a href="about.html" class="nav-link">O mnie</a></li>
+        <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+        <li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main class="signup-main">
+  <div class="signup-box">
 
-<div class="signup-box">
+    <h1 class="signup-title">Zapis na lekcje gitary</h1>
+    <p class="signup-lead">
+      Wypełnij formularz — skontaktuję się z Tobą w celu ustalenia terminu.
+    </p>
 
-<h1 class="signup-title">Zapis na lekcje gitary</h1>
-<p class="signup-lead">
-Wypełnij formularz — skontaktuję się z Tobą w celu ustalenia terminu.
-</p>
+    <form id="signupForm" novalidate>
 
-<form id="signupForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="imie">Imię</label>
+          <input type="text" id="imie" name="imie" required>
+        </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="imie">Imię</label>
-      <input type="text" id="imie" name="imie" required>
-    </div>
+        <div class="form-group">
+          <label for="nazwisko">Nazwisko</label>
+          <input type="text" id="nazwisko" name="nazwisko" required>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label for="nazwisko">Nazwisko</label>
-      <input type="text" id="nazwisko" name="nazwisko" required>
-    </div>
+      <div class="form-group">
+        <label for="wiek">Wiek ucznia</label>
+        <input type="number" id="wiek" name="wiek" min="5" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefon">Numer telefonu (uczeń lub rodzic/opiekun)</label>
+        <input type="tel" id="telefon" name="telefon" required>
+      </div>
+
+      <div class="form-group">
+        <label>Czy posiadasz gitarę?</label>
+        <div class="form-radio">
+          <label><input type="radio" name="gitara" value="Tak" required> Tak</label>
+          <label><input type="radio" name="gitara" value="Nie"> Nie</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rodzajGitary">Jeśli tak — jaką gitarę?</label>
+        <select id="rodzajGitary" name="rodzajGitary">
+          <option value="Brak">Brak</option>
+          <option value="Klasyczna">Klasyczna</option>
+          <option value="Akustyczna">Akustyczna</option>
+          <option value="Elektryczna">Elektryczna</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="poziom">Poziom zaawansowania</label>
+        <select id="poziom" name="poziom" required>
+          <option value="Początkujący">Początkujący</option>
+          <option value="Średniozaawansowany">Średniozaawansowany</option>
+          <option value="Zaawansowany">Zaawansowany</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dniGodziny">Preferowane dni / godziny</label>
+        <input type="text" id="dniGodziny" name="dniGodziny">
+      </div>
+
+      <div class="form-group">
+        <label for="info">Dodatkowe informacje</label>
+        <textarea id="info" name="info" placeholder="np. ulubiony styl, cele, pytania..."></textarea>
+      </div>
+
+      <!-- Honeypot przeciw botom -->
+      <div class="honeypot" aria-hidden="true">
+        <label for="website">Nie wypełniaj tego pola</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
+        <div id="formMessage" class="form-message"></div>
+      </div>
+
+    </form>
+
   </div>
-
-  <div class="form-group">
-    <label for="wiek">Wiek ucznia</label>
-    <input type="number" id="wiek" name="wiek" required>
-  </div>
-
-  <div class="form-group">
-    <label for="telefon">Numer telefonu (uczeń lub rodzic/opiekun)</label>
-    <input type="tel" id="telefon" name="telefon" required>
-  </div>
-
-  <div class="form-group">
-    <label>Czy posiadasz gitarę?</label>
-    <div class="form-radio">
-      <label><input type="radio" name="gitara" value="Tak" required> Tak</label>
-      <label><input type="radio" name="gitara" value="Nie"> Nie</label>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="rodzajGitary">Jeśli tak — jaką gitarę?</label>
-    <select id="rodzajGitary" name="rodzajGitary">
-      <option value="Brak">Brak</option>
-      <option value="Klasyczna">Klasyczna</option>
-      <option value="Akustyczna">Akustyczna</option>
-      <option value="Elektryczna">Elektryczna</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="poziom">Poziom zaawansowania</label>
-    <select id="poziom" name="poziom" required>
-      <option value="Początkujący">Początkujący</option>
-      <option value="Średniozaawansowany">Średniozaawansowany</option>
-      <option value="Zaawansowany">Zaawansowany</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="dniGodziny">Preferowane dni / godziny</label>
-    <input type="text" id="dniGodziny" name="dniGodziny">
-  </div>
-
-  <div class="form-group">
-    <label for="info">Dodatkowe informacje</label>
-    <textarea id="info" name="info" placeholder="np. ulubiony styl, cele, pytania..."></textarea>
-  </div>
-
-  <div class="form-submit">
-    <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
-  </div>
-
-</form>
-
-</div>
-
 </main>
 
 <footer class="footer">
-<div class="footer-copy">
-<p>&copy; 2025 Heavy School</p>
-</div>
+  <div class="footer-copy">
+    <p>&copy; 2025 Heavy School</p>
+  </div>
 </footer>
 
 <script type="module">
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
@@ -236,39 +259,110 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const form = document.getElementById("signupForm");
+const submitButton = form.querySelector(".submit-btn");
+const formMessage = document.getElementById("formMessage");
+const rodzajGitary = document.getElementById("rodzajGitary");
+const gitaraRadios = document.querySelectorAll('input[name="gitara"]');
+
+// Czas wejścia na formularz — antybot
+const formStartTime = Date.now();
+const MIN_FILL_TIME_SECONDS = 4;
+
+function setMessage(text, isError = false) {
+  formMessage.textContent = text;
+  formMessage.classList.toggle("error", isError);
+}
+
+function updateGitaraSelect() {
+  const selected = document.querySelector('input[name="gitara"]:checked')?.value;
+
+  if (selected === "Nie") {
+    rodzajGitary.value = "Brak";
+    rodzajGitary.disabled = true;
+  } else {
+    rodzajGitary.disabled = false;
+  }
+}
+
+gitaraRadios.forEach(radio => {
+  radio.addEventListener("change", updateGitaraSelect);
+});
+
+updateGitaraSelect();
 
 form.addEventListener("submit", async (e) => {
-
   e.preventDefault();
+  setMessage("");
+
+  // Honeypot
+  const honeypot = document.getElementById("website").value.trim();
+  if (honeypot !== "") {
+    setMessage("Wykryto nieprawidłowe wysłanie formularza.", true);
+    return;
+  }
+
+  // Minimalny czas wypełnienia
+  const elapsedSeconds = (Date.now() - formStartTime) / 1000;
+  if (elapsedSeconds < MIN_FILL_TIME_SECONDS) {
+    setMessage("Formularz został wysłany zbyt szybko. Spróbuj ponownie za chwilę.", true);
+    return;
+  }
+
+  // Walidacja pól
+  const imie = document.getElementById("imie").value.trim();
+  const nazwisko = document.getElementById("nazwisko").value.trim();
+  const wiek = document.getElementById("wiek").value.trim();
+  const telefon = document.getElementById("telefon").value.trim();
+  const gitara = document.querySelector('input[name="gitara"]:checked')?.value || "";
+  const rodzaj = document.getElementById("rodzajGitary").value;
+  const poziom = document.getElementById("poziom").value;
+  const dniGodziny = document.getElementById("dniGodziny").value.trim();
+  const info = document.getElementById("info").value.trim();
+
+  if (!imie || !nazwisko || !wiek || !telefon || !gitara || !poziom) {
+    setMessage("Uzupełnij wszystkie wymagane pola.", true);
+    return;
+  }
+
+  const wiekNumber = Number(wiek);
+  if (!Number.isFinite(wiekNumber) || wiekNumber < 5 || wiekNumber > 100) {
+    setMessage("Podaj poprawny wiek ucznia.", true);
+    return;
+  }
+
+  const telefonClean = telefon.replace(/\s+/g, "");
+  const phoneRegex = /^[+0-9]{7,15}$/;
+  if (!phoneRegex.test(telefonClean)) {
+    setMessage("Podaj poprawny numer telefonu.", true);
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Wysyłanie...";
 
   const data = {
-    imie: document.getElementById("imie").value,
-    nazwisko: document.getElementById("nazwisko").value,
-    wiek: document.getElementById("wiek").value,
-    telefon: document.getElementById("telefon").value,
-    gitara: document.querySelector('input[name="gitara"]:checked')?.value,
-    rodzajGitary: document.getElementById("rodzajGitary").value,
-    poziom: document.getElementById("poziom").value,
-    dniGodziny: document.getElementById("dniGodziny").value,
-    info: document.getElementById("info").value,
+    imie,
+    nazwisko,
+    wiek: wiekNumber,
+    telefon: telefonClean,
+    gitara,
+    rodzajGitary: gitara === "Nie" ? "Brak" : rodzaj,
+    poziom,
+    dniGodziny,
+    info,
     data: serverTimestamp()
   };
 
   try {
-
     await addDoc(collection(db, "zgloszenia"), data);
-
     window.location.href = "potwierdzenie.html";
-
   } catch (err) {
-
-    alert("Błąd wysyłania");
-    console.log(err);
-
+    console.error(err);
+    setMessage("Błąd wysyłania. Spróbuj ponownie.", true);
+    submitButton.disabled = false;
+    submitButton.textContent = "Wyślij zgłoszenie";
   }
-
 });
-
 </script>
 
 </body>

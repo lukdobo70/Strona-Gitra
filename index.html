@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico">
-  <title>Strona Główna</title>
+  <title>Heavyschool</title>
   <meta name="description" content="Lekcje gitary rock/metal w Opolu i online. Nauka improwizacji, techniki, rytmiki i feelingu. Zapisz się na pierwszą lekcję." />
 
   <link rel="stylesheet" href="styles.css?v=20260306-4" />
-  <script src="main.js?v=20260306-4"></script>
+  <script src="main.js?v=20260306-4" defer></script>
   <meta name="google-site-verification" content="G3vq97RoQij3gIvJFTQrUj_WkqTkKLhGXLMOlvkvJdg" />
 </head>
 
@@ -16,22 +16,58 @@
   <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo">Heavy School</div>
+  <div class="navbar-container">
+    <div class="navbar-logo">Heavy School</div>
 
-      <nav class="navbar-menu" aria-label="Główne menu">
-        <ul>
-          <li><a href="index.html" class="nav-link active">Strona główna</a></li>
-          <li><a href="about.html" class="nav-link">O mnie</a></li>
-          <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
-          <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
-          <li><a href="contact.html" class="nav-link">Kontakt</a></li>
-          <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
-          <li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Otwórz menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="navbar-menu" aria-label="Główne menu">
+      <ul>
+        <li><a href="index.html" class="nav-link active">Strona główna</a></li>
+        <li><a href="about.html" class="nav-link">O mnie</a></li>
+        <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
+        <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+        <li><a href="gry.html" class="nav-link">Nauka przez zabawę</a></li>
+        <li><a href="regulamin.html" class="nav-link">Regulamin</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<aside class="mobile-sidebar" id="mobile-menu" aria-label="Menu mobilne">
+  <div class="mobile-sidebar-top">
+    <div class="mobile-sidebar-logo">Heavy School</div>
+
+    <button class="sidebar-close" type="button" aria-label="Zamknij menu">
+      &times;
+    </button>
+  </div>
+
+  <nav class="mobile-sidebar-nav" aria-label="Mobilne menu">
+    <ul>
+      <li><a href="index.html" class="mobile-nav-link active">Strona główna</a></li>
+      <li><a href="about.html" class="mobile-nav-link">O mnie</a></li>
+      <li><a href="Materiały.html" class="mobile-nav-link">Materiały</a></li>
+      <li><a href="FAQ.html" class="mobile-nav-link">FAQ</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Kontakt</a></li>
+      <li><a href="gry.html" class="mobile-nav-link">Nauka przez zabawę</a></li>
+      <li><a href="regulamin.html" class="mobile-nav-link">Regulamin</a></li>
+    </ul>
+  </nav>
+</aside>
 
   <main id="main">
     <!-- HERO -->
@@ -59,14 +95,14 @@
         <div class="hero-rating" aria-label="Ocena na OLX">
   <div class="rating-summary">
     <div class="rating-stars" id="rating-stars">★★★★★</div>
-    <span class="rating-score" id="rating-score">5.0</span>
+    <span class="rating-score" id="rating-score">0</span>
     <span class="rating-source">
-      na OLX (<span id="rating-count">9</span> opinii)
+      na Google (<span id="rating-count">0</span> opinii)
     </span>
   </div>
 
   <div class="rating-breakdown">
-    <div>5 ★ (<span id="stars-5">9</span>)</div>
+    <div>5 ★ (<span id="stars-5">0</span>)</div>
     <div>4 ★ (<span id="stars-4">0</span>)</div>
     <div>3 ★ (<span id="stars-3">0</span>)</div>
     <div>2 ★ (<span id="stars-2">0</span>)</div>

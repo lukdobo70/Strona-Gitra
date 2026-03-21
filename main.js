@@ -34,7 +34,7 @@ if (alertBox && closeAlert) {
 }
 document.addEventListener("DOMContentLoaded", () => {
   const ratings = {
-    5: 9,
+    5: 8,
     4: 0,
     3: 0,
     2: 0,
@@ -93,4 +93,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const rounded = Math.round(Number(average));
   ratingStars.textContent = "★".repeat(rounded) + "☆".repeat(5 - rounded);
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("sidebar-overlay");
+  const closeBtn = document.querySelector(".sidebar-close");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  if (!menuToggle || !mobileMenu || !overlay || !closeBtn) return;
+
+  function openMenu() {
+    body.classList.add("menu-open");
+    menuToggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    body.classList.remove("menu-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleMenu() {
+    if (body.classList.contains("menu-open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  menuToggle.addEventListener("click", toggleMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && body.classList.contains("menu-open")) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900 && body.classList.contains("menu-open")) {
+      closeMenu();
+    }
+  });
 });

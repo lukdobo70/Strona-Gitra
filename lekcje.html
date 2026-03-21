@@ -10,10 +10,9 @@
     content="Sprawdź, jak wyglądają lekcje gitary w Heavy School. Indywidualne podejście, rozwój techniki, szybki progres i zajęcia dopasowane do ucznia."
   />
 
-  <link rel="stylesheet" href="styles.css?v=20260307-1" />
+  <link rel="stylesheet" href="styles.css?v=20260306-4" />
   <link rel="stylesheet" href="lekcje.css?v=20260307-1" />
-  <link rel="stylesheet" href="lekcje.css?v=23904843289">
-  <script src="main.js?v=20260307-1" defer></script>
+  <script src="main.js?v=20260306-4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -22,9 +21,21 @@
     <div class="navbar-container">
       <div class="navbar-logo">Heavy School</div>
 
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Otwórz menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <nav class="navbar-menu" aria-label="Główne menu">
         <ul>
-          <li><a href="index.html" class="nav-link active">Strona główna</a></li>
+          <li><a href="index.html" class="nav-link">Strona główna</a></li>
           <li><a href="about.html" class="nav-link">O mnie</a></li>
           <li><a href="Materiały.html" class="nav-link">Materiały</a></li>
           <li><a href="FAQ.html" class="nav-link">FAQ</a></li>
@@ -35,6 +46,30 @@
       </nav>
     </div>
   </header>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <aside class="mobile-sidebar" id="mobile-menu" aria-label="Menu mobilne">
+    <div class="mobile-sidebar-top">
+      <div class="mobile-sidebar-logo">Heavy School</div>
+
+      <button class="sidebar-close" type="button" aria-label="Zamknij menu">
+        &times;
+      </button>
+    </div>
+
+    <nav class="mobile-sidebar-nav" aria-label="Mobilne menu">
+      <ul>
+        <li><a href="index.html" class="mobile-nav-link">Strona główna</a></li>
+        <li><a href="about.html" class="mobile-nav-link">O mnie</a></li>
+        <li><a href="Materiały.html" class="mobile-nav-link">Materiały</a></li>
+        <li><a href="FAQ.html" class="mobile-nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Kontakt</a></li>
+        <li><a href="gry.html" class="mobile-nav-link">Nauka przez zabawę</a></li>
+        <li><a href="regulamin.html" class="mobile-nav-link">Regulamin</a></li>
+      </ul>
+    </nav>
+  </aside>
 
   <main id="main" class="lessons-main">
     <section class="lessons-intro">

@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="styles.css">
 <!-- Google tag (gtag.js) event -->
 <script>
-  gtag('event', 'ads_conversion_Kontakt_1', {
-    // <event_parameters>
-  });
+  if (typeof gtag === "function") {
+    gtag("event", "ads_conversion_Kontakt_1", {
+      // <event_parameters>
+    });
+  }
 </script>
 
 <style>
@@ -49,6 +51,19 @@
   font-weight:700;
 }
 
+.optional-note{
+  color:var(--muted);
+  font-weight:500;
+}
+
+.form-help{
+  display:block;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:0.9rem;
+  line-height:1.4;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea{
@@ -64,6 +79,10 @@
 .form-group textarea{
   min-height:100px;
   resize:vertical;
+}
+
+.form-group input[aria-invalid="true"]{
+  border-color:#ff8a8a;
 }
 
 .form-row{
@@ -168,24 +187,39 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="imie">Imię</label>
-          <input type="text" id="imie" name="imie" required>
+          <label for="imie">Imię ucznia</label>
+          <input type="text" id="imie" name="imie" autocomplete="given-name" required>
         </div>
 
         <div class="form-group">
-          <label for="nazwisko">Nazwisko</label>
-          <input type="text" id="nazwisko" name="nazwisko" required>
+          <label for="nazwisko">Nazwisko ucznia</label>
+          <input type="text" id="nazwisko" name="nazwisko" autocomplete="family-name" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="wiek">Wiek ucznia</label>
-        <input type="number" id="wiek" name="wiek" min="5" max="100" required>
+        <input type="number" id="wiek" name="wiek" min="5" max="100" inputmode="numeric" required>
       </div>
 
       <div class="form-group">
-        <label for="telefon">Numer telefonu (uczeń lub rodzic/opiekun)</label>
-        <input type="tel" id="telefon" name="telefon" required>
+        <label for="telefon" id="telefonLabel">Numer telefonu ucznia lub rodzica/opiekuna</label>
+        <input type="tel" id="telefon" name="telefon" inputmode="tel" autocomplete="tel" aria-describedby="telefonHelp" required>
+        <small id="telefonHelp" class="form-help" aria-live="polite">
+          Podaj wiek ucznia, aby ustalić właściwy numer kontaktowy.
+        </small>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="miasto">Miasto</label>
+          <input type="text" id="miasto" name="miasto" autocomplete="address-level2" required>
+        </div>
+
+        <div class="form-group">
+          <label for="region">Region / województwo <span class="optional-note">(opcjonalne)</span></label>
+          <input type="text" id="region" name="region" autocomplete="address-level1">
+        </div>
       </div>
 
       <div class="form-group">
@@ -197,7 +231,7 @@
       </div>
 
       <div class="form-group">
-        <label for="rodzajGitary">Jeśli tak — jaką gitarę?</label>
+        <label for="rodzajGitary">Jeśli tak — jaką gitarę? <span class="optional-note">(opcjonalne)</span></label>
         <select id="rodzajGitary" name="rodzajGitary">
           <option value="Brak">Brak</option>
           <option value="Klasyczna">Klasyczna</option>
@@ -209,19 +243,20 @@
       <div class="form-group">
         <label for="poziom">Poziom zaawansowania</label>
         <select id="poziom" name="poziom" required>
-          <option value="Początkujący">Początkujący</option>
-          <option value="Średniozaawansowany">Średniozaawansowany</option>
-          <option value="Zaawansowany">Zaawansowany</option>
+          <option value="Nigdy wcześniej nie grałem/am">Nigdy wcześniej nie grałem/am</option>
+          <option value="Początkujący – znam podstawy i kilka akordów">Początkujący – znam podstawy i kilka akordów</option>
+          <option value="Średniozaawansowany – gram utwory i rozwijam technikę">Średniozaawansowany – gram utwory i rozwijam technikę</option>
+          <option value="Zaawansowany – gram swobodnie i chcę doskonalić warsztat">Zaawansowany – gram swobodnie i chcę doskonalić warsztat</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="dniGodziny">Preferowane dni / godziny</label>
+        <label for="dniGodziny">Preferowane dni / godziny <span class="optional-note">(opcjonalne)</span></label>
         <input type="text" id="dniGodziny" name="dniGodziny">
       </div>
 
       <div class="form-group">
-        <label for="info">Dodatkowe informacje</label>
+        <label for="info">Dodatkowe informacje <span class="optional-note">(opcjonalne)</span></label>
         <textarea id="info" name="info" placeholder="np. ulubiony styl, cele, pytania..."></textarea>
       </div>
 
@@ -274,6 +309,10 @@ const submitButton = form.querySelector(".submit-btn");
 const formMessage = document.getElementById("formMessage");
 const rodzajGitary = document.getElementById("rodzajGitary");
 const gitaraRadios = document.querySelectorAll('input[name="gitara"]');
+const wiekInput = document.getElementById("wiek");
+const telefonInput = document.getElementById("telefon");
+const telefonLabel = document.getElementById("telefonLabel");
+const telefonHelp = document.getElementById("telefonHelp");
 
 const formStartTime = Date.now();
 const MIN_FILL_TIME_SECONDS = 4;
@@ -299,6 +338,29 @@ function normalizePhone(phone) {
   return phone.replace(/[^\d+]/g, "");
 }
 
+function updatePhoneField() {
+  const ageValue = wiekInput.value.trim();
+  const age = Number(ageValue);
+
+  if (!ageValue || !Number.isFinite(age)) {
+    telefonLabel.textContent = "Numer telefonu ucznia lub rodzica/opiekuna";
+    telefonInput.placeholder = "Najpierw podaj wiek ucznia";
+    telefonHelp.textContent = "Podaj wiek ucznia, aby ustalić właściwy numer kontaktowy.";
+    return;
+  }
+
+  if (age < 18) {
+    telefonLabel.textContent = "Numer telefonu rodzica/opiekuna";
+    telefonInput.placeholder = "Wymagany numer telefonu rodzica lub opiekuna";
+    telefonHelp.textContent = "Uczeń jest niepełnoletni — wymagany jest kontakt do rodzica lub opiekuna.";
+    return;
+  }
+
+  telefonLabel.textContent = "Numer telefonu ucznia";
+  telefonInput.placeholder = "Numer telefonu ucznia";
+  telefonHelp.textContent = "Pełnoletni uczeń może podać własny numer telefonu.";
+}
+
 function getTodayKey() {
   const now = new Date();
   const yyyy = now.getFullYear();
@@ -316,7 +378,13 @@ gitaraRadios.forEach((radio) => {
   radio.addEventListener("change", updateGitaraSelect);
 });
 
+wiekInput.addEventListener("input", updatePhoneField);
+telefonInput.addEventListener("input", () => {
+  telefonInput.setAttribute("aria-invalid", "false");
+});
+
 updateGitaraSelect();
+updatePhoneField();
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -338,13 +406,15 @@ form.addEventListener("submit", async (e) => {
   const nazwisko = document.getElementById("nazwisko").value.trim();
   const wiek = Number(document.getElementById("wiek").value);
   const telefon = normalizePhone(document.getElementById("telefon").value.trim());
+  const miasto = document.getElementById("miasto").value.trim();
+  const region = document.getElementById("region").value.trim();
   const gitara = document.querySelector('input[name="gitara"]:checked')?.value || "";
   const rodzaj = document.getElementById("rodzajGitary").value;
   const poziom = document.getElementById("poziom").value;
   const dniGodziny = document.getElementById("dniGodziny").value.trim();
   const info = document.getElementById("info").value.trim();
 
-  if (!imie || !nazwisko || !telefon || !gitara || !poziom || !Number.isFinite(wiek)) {
+  if (!imie || !nazwisko || !telefon || !miasto || !gitara || !poziom || !Number.isFinite(wiek)) {
     setMessage("Uzupełnij wszystkie wymagane pola.", true);
     return;
   }
@@ -354,10 +424,15 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  if (!/^[+0-9]{7,15}$/.test(telefon)) {
-    setMessage("Podaj poprawny numer telefonu.", true);
+  if (!/^\+?\d{7,15}$/.test(telefon)) {
+    const phoneOwner = wiek < 18 ? "rodzica/opiekuna" : "ucznia";
+    telefonInput.setAttribute("aria-invalid", "true");
+    setMessage(`Podaj poprawny numer telefonu ${phoneOwner}.`, true);
+    telefonInput.focus();
     return;
   }
+
+  telefonInput.setAttribute("aria-invalid", "false");
 
   const dayKey = getTodayKey();
   const submissionId = makeSubmissionId(telefon, dayKey);
@@ -370,6 +445,8 @@ form.addEventListener("submit", async (e) => {
     nazwisko,
     wiek,
     telefon,
+    miasto,
+    region,
     gitara,
     rodzajGitary: gitara === "Nie" ? "Brak" : rodzaj,
     poziom,
